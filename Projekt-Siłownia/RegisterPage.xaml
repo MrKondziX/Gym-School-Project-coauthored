@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt_Siłownia.RegisterPage"
+             BackgroundColor="Black"
+             Title="Zarejestruj Się">
+
+        <Grid RowDefinitions="Auto, *" ColumnDefinitions="*">
+            <Frame Grid.Row="1"
+                   Margin="20"
+                   BackgroundColor="Gray"
+                   CornerRadius="10"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Padding="30">
+
+                <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+
+                <!-- Nagłówek -->
+                <Label Text="REJESTRACJA"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="Black"/>
+
+                <!-- Imię -->
+                <Entry Placeholder="Imię"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           WidthRequest="250"/>
+
+                <!-- Nazwisko -->
+                <Entry Placeholder="Nazwisko"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           WidthRequest="250"/>
+
+                <!-- E-mail -->
+                <Entry Placeholder="E-mail"
+                           Keyboard="Email"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           WidthRequest="250"/>
+
+                <!-- Hasło -->
+                <Entry Placeholder="Hasło"
+                           IsPassword="True"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           WidthRequest="250"/>
+
+                <!-- Powtórz hasło -->
+                <Entry Placeholder="Powtórz hasło"
+                           IsPassword="True"
+                           BackgroundColor="White"
+                           TextColor="Black"
+                           WidthRequest="250"/>
+
+                <!-- Przycisk rejestracji -->
+                <Button Text="Zarejestruj się"
+                            BackgroundColor="LightGray"
+                            TextColor="Black"
+                            HorizontalOptions="Center"
+                            Margin="0,10,0,0"/>
+
+                <!-- Link do logowania -->
+                <Button Text="Masz już konto? Zaloguj się"
+                           BackgroundColor="LightGray"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0"   
+                           Clicked="AlreadyHaveAnAccount"/>
+            </VerticalStackLayout>
+            </Frame>
+        </Grid>
+</ContentPage>

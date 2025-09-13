@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt_Siłownia.LoginPage"
+             BackgroundColor="Black"
+             Title="Zaloguj Się">
+
+    <Grid RowDefinitions="Auto, *" ColumnDefinitions="*">
+        <!-- Panel logowania w centrum -->
+        <Frame Grid.Row="1"
+               Margin="20"
+               BackgroundColor="Gray"
+               CornerRadius="10"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Padding="30">
+
+            <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
+
+                <!-- Nagłówek -->
+                <Label Text="LOGOWANIE"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="Black"/>
+
+                <!-- Login -->
+                <Entry Placeholder="Login"
+                       BackgroundColor="White"
+                       TextColor="Black"
+                       WidthRequest="250"/>
+
+                <!-- Hasło -->
+                <Entry Placeholder="Hasło"
+                       IsPassword="True"
+                       BackgroundColor="White"
+                       TextColor="Black"
+                       WidthRequest="250"/>
+
+                <!-- Link: Nie pamiętasz hasła -->
+                <Label Text="Nie pamiętasz hasła?"
+                       TextColor="DodgerBlue"
+                       FontSize="12"
+                       HorizontalOptions="Center"/>
+
+                <!-- Przyciski -->
+                <Grid ColumnDefinitions="*,*"
+                      Margin="0,10,0,0">
+
+                    <Button Text="Zaloguj"
+                            Grid.Column="0"
+                            BackgroundColor="LightGray"
+                            TextColor="Black"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Zarejestruj się"
+                            Grid.Column="1"
+                            BackgroundColor="LightGray"
+                            TextColor="Black"
+                            HorizontalOptions="Center"
+                            Clicked="ZarejestrujSie_Clicked"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
