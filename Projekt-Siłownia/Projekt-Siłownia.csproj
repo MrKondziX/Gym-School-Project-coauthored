@@ -85,6 +85,9 @@
 	  <MauiXaml Update="RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Workout.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

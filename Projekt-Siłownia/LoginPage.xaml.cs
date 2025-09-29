@@ -2,6 +2,8 @@
 {
     public partial class LoginPage : ContentPage
     {
+       
+
         public LoginPage()
         {
             InitializeComponent();
@@ -11,6 +13,11 @@
         private async void ZarejestrujSie_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RegisterPage());
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Window.Page = new Workout();
         }
     }
 
