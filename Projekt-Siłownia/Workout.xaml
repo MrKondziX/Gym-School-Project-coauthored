@@ -3,10 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.Workout">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" Margin="30,30,30,30">
             <Label Text="Workout Page" 
                       HorizontalOptions="Center" 
-                      FontSize="24"/>
+                      FontSize="24" Margin="5,5,5,5"/>
+            <Label Text="Binding Excercise" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Text="Ciężar" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Entry Placeholder="Binding" 
+                   Keyboard="Numeric" Margin="5,5,5,5"/>
+            <Label Text="Powtórzenia" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Entry Placeholder="Binding" 
+                   Keyboard="Numeric" Margin="5,5,5,5"/>
+            <Label Text="RPE" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Entry Placeholder="Binding" 
+                   Keyboard="Numeric" Margin="5,5,5,5"/>
+            <Button Text="Zapisz" 
+                    HorizontalOptions="Center" 
+                    Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
