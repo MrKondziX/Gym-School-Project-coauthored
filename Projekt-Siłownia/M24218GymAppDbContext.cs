@@ -38,7 +38,7 @@ public partial class M24218GymAppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=mysql.ct8.pl;database=m24218_gym-app-db;user=m24218_GymAppAcc;Password=P@p!ez.2137$", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.32-mariadb"));
+        => optionsBuilder.UseMySql("server=gym-app-db.c3w0aye8krgk.eu-north-1.rds.amazonaws.com;database=gym-app-db;user=GymAppAcc;Password=P@p!ez.2137$", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.32-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
