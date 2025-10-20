@@ -28,14 +28,16 @@
                 <Entry Placeholder="Login"
                        BackgroundColor="White"
                        TextColor="Black"
-                       WidthRequest="250"/>
+                       WidthRequest="250"
+                       x:Name="LoginEntry"/>
 
                 <!-- Hasło -->
                 <Entry Placeholder="Hasło"
                        IsPassword="True"
                        BackgroundColor="White"
                        TextColor="Black"
-                       WidthRequest="250"/>
+                       WidthRequest="250"
+                       x:Name="PassEntry"/>
 
                 <!-- Link: Nie pamiętasz hasła -->
                 <Label Text="Nie pamiętasz hasła?"

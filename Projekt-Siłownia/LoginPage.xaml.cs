@@ -1,8 +1,10 @@
-﻿namespace Projekt_Siłownia
+﻿using System.Net.Http.Json;
+
+namespace Projekt_Siłownia
 {
     public partial class LoginPage : ContentPage
     {
-       
+       private readonly AuthService _authService = new();
 
         public LoginPage()
         {
@@ -15,9 +17,31 @@
             await Navigation.PushAsync(new RegisterPage());
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            Window.Page = new Workout();
+            string login = LoginEntry.Text?.Trim();
+            string password = PassEntry.Text;
+
+
+            if(string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlert("Błąd", "Podaj Nazwę Użytkownika I Hasło", "OK");
+                return;
+            }
+            string result = await _authService.Login(login, password);
+
+            if(result == "Zalogowano Pomyślnie")
+            {
+                await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
+                Window.Page = new Workout();
+
+                LoginEntry.Text = string.Empty;
+                PassEntry.Text = string.Empty;
+            }
+            else
+            {
+                await DisplayAlert("BŁĄD", result, "OK");
+            }
         }
     }
 
