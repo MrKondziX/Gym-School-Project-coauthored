@@ -27,41 +27,53 @@
                 <Entry Placeholder="Imię"
                            BackgroundColor="White"
                            TextColor="Black"
-                           WidthRequest="250"/>
+                           WidthRequest="250"
+                           x:Name="NameEntry"/>
 
                 <!-- Nazwisko -->
                 <Entry Placeholder="Nazwisko"
                            BackgroundColor="White"
                            TextColor="Black"
-                           WidthRequest="250"/>
+                           WidthRequest="250"
+                           x:Name="SurnameEntry"/>
+
+                <Entry Placeholder="login"
+                       BackgroundColor="White"
+                       TextColor="Black"
+                       WidthRequest="250"
+                       x:Name="LoginEntry"/>
 
                 <!-- E-mail -->
                 <Entry Placeholder="E-mail"
                            Keyboard="Email"
                            BackgroundColor="White"
                            TextColor="Black"
-                           WidthRequest="250"/>
+                           WidthRequest="250"
+                           x:Name="EmailEntry"/>
 
                 <!-- Hasło -->
                 <Entry Placeholder="Hasło"
                            IsPassword="True"
                            BackgroundColor="White"
                            TextColor="Black"
-                           WidthRequest="250"/>
+                           WidthRequest="250"
+                           x:Name="PassEntry"/>
 
                 <!-- Powtórz hasło -->
                 <Entry Placeholder="Powtórz hasło"
                            IsPassword="True"
                            BackgroundColor="White"
                            TextColor="Black"
-                           WidthRequest="250"/>
+                           WidthRequest="250"
+                           x:Name="RepeatPassEntry"/>
 
                 <!-- Przycisk rejestracji -->
                 <Button Text="Zarejestruj się"
                             BackgroundColor="LightGray"
                             TextColor="Black"
                             HorizontalOptions="Center"
-                            Margin="0,10,0,0"/>
+                            Margin="0,10,0,0"
+                            Clicked="RegisterButtonClicked"/>
 
                 <!-- Link do logowania -->
                 <Button Text="Masz już konto? Zaloguj się"

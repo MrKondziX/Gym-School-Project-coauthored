@@ -17,7 +17,7 @@ namespace Projekt_Siłownia
             await Navigation.PushAsync(new RegisterPage());
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void LoginClicked(object sender, EventArgs e)
         {
             string login = LoginEntry.Text?.Trim();
             string password = PassEntry.Text;

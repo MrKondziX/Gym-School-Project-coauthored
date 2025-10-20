@@ -19,11 +19,13 @@ namespace Projekt_Siłownia
 
             var user = new User
             {
+                UsersId = 0,
                 UsersName = usersName,
                 UsersSurname = usersSurname,
                 UsersEmail = usersEmail,
                 UsersLogin = usersLogin,
-                UsersPassword = usersPassword
+                UsersPassword = usersPassword,
+                UsersTypeId = 3
             };
 
             _context.Users.Add(user);
@@ -51,5 +53,6 @@ namespace Projekt_Siłownia
             var computedHash = BitConverter.ToString(bytes).Replace("-", "").ToLower();
             return computedHash == hashFromDb.ToLower();
         }
+
     }
 }

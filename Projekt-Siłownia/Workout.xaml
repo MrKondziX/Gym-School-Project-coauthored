@@ -4,6 +4,7 @@
              x:Class="Projekt_Siłownia.Workout">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Margin="30,30,30,30">
+            <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
             <Label Text="Workout Page" 
                       HorizontalOptions="Center" 
                       FontSize="24" Margin="5,5,5,5"/>

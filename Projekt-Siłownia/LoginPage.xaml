@@ -53,7 +53,7 @@
                             Grid.Column="0"
                             BackgroundColor="LightGray"
                             TextColor="Black"
-                            HorizontalOptions="Center" Clicked="Button_Clicked"/>
+                            HorizontalOptions="Center" Clicked="LoginClicked"/>
 
                     <Button Text="Zarejestruj się"
                             Grid.Column="1"

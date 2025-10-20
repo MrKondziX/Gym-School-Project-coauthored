@@ -7,6 +7,11 @@ public partial class Workout : ContentPage
         InitializeComponent();
     }
 
+    private async void LogOutClicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new NavigationPage(new LoginPage());
+    }
+
     private void Button_Clicked(object sender, EventArgs e)
     {
 
