@@ -23,24 +23,41 @@ namespace Projekt_Siłownia
             string password = PassEntry.Text;
 
 
-            if(string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
                 await DisplayAlert("Błąd", "Podaj Nazwę Użytkownika I Hasło", "OK");
                 return;
             }
-            string result = await _authService.Login(login, password);
 
-            if(result == "Zalogowano Pomyślnie")
+            var (result, userType) = await _authService.Login(login, password);
+
+            if (result == "Zalogowano Pomyślnie")
             {
-                await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
-                Window.Page = new Workout();
-
-                LoginEntry.Text = string.Empty;
-                PassEntry.Text = string.Empty;
+                if (userType == 1)
+                {
+                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
+                    Window.Page = new AdminPage();
+                    LoginEntry.Text = string.Empty;
+                    PassEntry.Text = string.Empty;
+                }
+                else if (userType == 2)
+                {
+                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
+                    Window.Page = new TrainerPage();
+                    LoginEntry.Text = string.Empty;
+                    PassEntry.Text = string.Empty;
+                }
+                else if (userType == 3)
+                {
+                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
+                    Window.Page = new UserPage();
+                    LoginEntry.Text = string.Empty;
+                    PassEntry.Text = string.Empty;
+                }
             }
             else
             {
-                await DisplayAlert("BŁĄD", result, "OK");
+                await DisplayAlert("Błąd", result, "OK");
             }
         }
     }

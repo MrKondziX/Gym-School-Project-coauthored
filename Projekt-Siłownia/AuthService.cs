@@ -33,17 +33,17 @@ namespace Projekt_Siłownia
             return "Zarejestrowano Pomyślnie";
         }
 
-        public async Task<string> Login(string usersLogin, string usersPassword)
+        public async Task<(string result, int? userType)> Login(string usersLogin, string usersPassword)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UsersLogin == usersLogin);
             if (user == null)
-                return "Nie Znaleziono Użytkownika";
+                return ("Nie Znaleziono Użytkownika", null);
 
             bool isPassValid = VerifySha256(usersPassword, user.UsersPassword);
             if (!isPassValid)
-                return "Niepoprawne Hasło";
+                return ("Niepoprawne Hasło", null);
 
-            return "Zalogowano Pomyślnie";
+            return ("Zalogowano Pomyślnie", user.UsersTypeId);
         }
 
         private static bool VerifySha256(string plainText, string hashFromDb)
