@@ -1,5 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 
+using LiveChartsCore.SkiaSharpView.Maui;
+using SkiaSharp;
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
 namespace Projekt_Siłownia
 {
     public static class MauiProgram
@@ -9,6 +13,8 @@ namespace Projekt_Siłownia
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
+                .UseLiveCharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

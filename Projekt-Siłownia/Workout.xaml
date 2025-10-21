@@ -21,6 +21,9 @@
             <Button Text="Zapisz" 
                     HorizontalOptions="Center" 
                     Clicked="Button_Clicked"/>
+
+            <!-- Placeholder by MJ -->
+            <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Progress" HorizontalOptions="Center"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

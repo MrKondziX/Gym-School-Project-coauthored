@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt_Siłownia.Progress"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui">
+
+    <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}">
+        
+        <lvc:CartesianChart.Series>
+            <lvc:SeriesCollection>
+                <lvc:XamlColumnSeries
+                    SeriesName="Score"
+                    Values="67, 69, 420, 2137"/>
+                </lvc:SeriesCollection>
+            </lvc:CartesianChart.Series>
+
+
+        <lvc:CartesianChart.XAxes>
+            <lvc:AxesCollection>
+                <lvc:XamlAxis
+                    Labels="Bark, For, Me, Baby"
+                    LabelsRotation="0"
+                    MinStep="1"
+                    ForceStepToMin="True"
+                    MinLimit="0"
+                    MaxLimit="4"/>
+            </lvc:AxesCollection>
+        </lvc:CartesianChart.XAxes>
+
+    </lvc:CartesianChart>
+    
+</ContentPage>
