@@ -40,7 +40,7 @@ namespace Projekt_Siłownia
                     Window.Page = new AdminPage();
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
-                    Debug.WriteLine(userId); //póki co tylko test, później może się przydać
+                    
                 }
                 else if (userType == 2)
                 {
@@ -48,7 +48,7 @@ namespace Projekt_Siłownia
                     Window.Page = new TrainerPage((int)userId);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
-                    Debug.WriteLine($"TEEEST {userId}"); // tak samo tutaj test
+                    
                 }
                 else if (userType == 3)
                 {
@@ -56,7 +56,7 @@ namespace Projekt_Siłownia
                     Window.Page = new UserPage();
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
-                    Debug.WriteLine(userId); // i tutaj test
+                  //  Debug.WriteLine(userId); ---> zostawiam zakomentowane na wszelki wypadek, może sie przydać do debugowania
                 }
             }
             else
