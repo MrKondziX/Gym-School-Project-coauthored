@@ -17,7 +17,5 @@ public partial class UsersKlientTrening
 
     public int ExsId { get; set; }
 
-    public virtual Exercise Exs { get; set; } = null!;
-
-    public virtual UsersKlient UsersKlient { get; set; } = null!;
+    public int UsersTreningdayId { get; set; }
 }

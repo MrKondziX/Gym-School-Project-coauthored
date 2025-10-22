@@ -10,8 +10,4 @@ public partial class UsersCoach
     public int UsersId { get; set; }
 
     public string UsersCoachNott { get; set; } = null!;
-
-    public virtual User Users { get; set; } = null!;
-
-    public virtual ICollection<UsersKlient> UsersKlients { get; set; } = new List<UsersKlient>();
 }

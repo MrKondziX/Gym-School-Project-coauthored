@@ -10,6 +10,4 @@ public partial class Carnet
     public string CarnetName { get; set; } = null!;
 
     public double CarnetCost { get; set; }
-
-    public virtual ICollection<UsersKlientCarnet> UsersKlientCarnets { get; set; } = new List<UsersKlientCarnet>();
 }

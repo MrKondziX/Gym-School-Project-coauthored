@@ -10,7 +10,7 @@ namespace Projekt_Siłownia
 {
     public class AuthService
     {
-        private readonly M24218GymAppDbContext _context = new();
+        private readonly GymAppDbContext _context = new();
 
         public async Task<string> Register(string usersName, string usersSurname, string usersEmail, string usersLogin, string usersPassword)
         {
