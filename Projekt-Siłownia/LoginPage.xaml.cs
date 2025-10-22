@@ -48,7 +48,7 @@ namespace Projekt_Siłownia
                     Window.Page = new TrainerPage((int)userId);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
-                    Debug.WriteLine(userId); // tak samo tutaj test
+                    Debug.WriteLine($"TEEEST {userId}"); // tak samo tutaj test
                 }
                 else if (userType == 3)
                 {
