@@ -6,5 +6,9 @@
     <VerticalStackLayout>
         <Label Text="Trainer Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <HorizontalStackLayout>
+            <Label Text="Witaj, " />
+            <Label Text="{Binding TrainerName}" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
