@@ -6,5 +6,12 @@
     <VerticalStackLayout>
         <Label Text="User Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <Picker/>
+        <Label Text="Moje Karnety"/>
+        <StackLayout Background="AliceBlue">
+            <Label x:Name="Rodzaj"/>
+            <Label x:Name="Data"/>
+            <Button Text="Odnow Karnet" Clicked="OdnowButton_Clicked"/>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
