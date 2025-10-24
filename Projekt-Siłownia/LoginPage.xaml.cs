@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Diagnostics;
+using System.Net.Http.Json;
 
 namespace Projekt_Siłownia
 {
@@ -29,7 +30,7 @@ namespace Projekt_Siłownia
                 return;
             }
 
-            var (result, userType) = await _authService.Login(login, password);
+            var (result, userType, userId) = await _authService.Login(login, password);
 
             if (result == "Zalogowano Pomyślnie")
             {
@@ -39,13 +40,15 @@ namespace Projekt_Siłownia
                     Window.Page = new AdminPage();
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
+                    
                 }
                 else if (userType == 2)
                 {
                     await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
-                    Window.Page = new TrainerPage();
+                    Window.Page = new TrainerPage((int)userId);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
+                    
                 }
                 else if (userType == 3)
                 {
@@ -53,6 +56,7 @@ namespace Projekt_Siłownia
                     Window.Page = new UserPage();
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
+                  //  Debug.WriteLine(userId); ---> zostawiam zakomentowane na wszelki wypadek, może sie przydać do debugowania
                 }
             }
             else

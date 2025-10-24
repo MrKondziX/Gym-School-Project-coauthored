@@ -12,8 +12,4 @@ public partial class Exercise
     public string ExsName { get; set; } = null!;
 
     public string ExsDescription { get; set; } = null!;
-
-    public virtual ExercisesMuscle ExsMuscle { get; set; } = null!;
-
-    public virtual ICollection<UsersKlientTrening> UsersKlientTrenings { get; set; } = new List<UsersKlientTrening>();
 }

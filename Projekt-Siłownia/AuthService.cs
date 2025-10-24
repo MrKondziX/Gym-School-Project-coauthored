@@ -10,7 +10,7 @@ namespace Projekt_Siłownia
 {
     public class AuthService
     {
-        private readonly M24218GymAppDbContext _context = new();
+        private readonly GymAppDbContext _context = new();
 
         public async Task<string> Register(string usersName, string usersSurname, string usersEmail, string usersLogin, string usersPassword)
         {
@@ -33,17 +33,17 @@ namespace Projekt_Siłownia
             return "Zarejestrowano Pomyślnie";
         }
 
-        public async Task<(string result, int? userType)> Login(string usersLogin, string usersPassword)
+        public async Task<(string result, int? userType, int? UserId)> Login(string usersLogin, string usersPassword)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UsersLogin == usersLogin);
             if (user == null)
-                return ("Nie Znaleziono Użytkownika", null);
+                return ("Nie Znaleziono Użytkownika", null, null);
 
             bool isPassValid = VerifySha256(usersPassword, user.UsersPassword);
             if (!isPassValid)
-                return ("Niepoprawne Hasło", null);
+                return ("Niepoprawne Hasło", null, null);
 
-            return ("Zalogowano Pomyślnie", user.UsersTypeId);
+            return ("Zalogowano Pomyślnie", user.UsersTypeId, user.UsersId);
         }
 
         private static bool VerifySha256(string plainText, string hashFromDb)

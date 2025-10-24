@@ -9,19 +9,9 @@ public partial class UsersKlientTreningplan
 
     public int UsersKlientId { get; set; }
 
-    public string Monday { get; set; } = null!;
+    public int ExsId { get; set; }
 
-    public string Tuesday { get; set; } = null!;
+    public string TreningplanNote { get; set; } = null!;
 
-    public string Wendsday { get; set; } = null!;
-
-    public string Thursday { get; set; } = null!;
-
-    public string Friday { get; set; } = null!;
-
-    public string Saturday { get; set; } = null!;
-
-    public string Sunday { get; set; } = null!;
-
-    public virtual UsersKlient UsersKlient { get; set; } = null!;
+    public DateOnly TreningplanDate { get; set; }
 }

@@ -14,8 +14,4 @@ public partial class UsersKlientCarnet
     public DateOnly CarnetStartdate { get; set; }
 
     public DateOnly CarnetEnddate { get; set; }
-
-    public virtual Carnet Carnet { get; set; } = null!;
-
-    public virtual UsersKlient UsersKlient { get; set; } = null!;
 }
