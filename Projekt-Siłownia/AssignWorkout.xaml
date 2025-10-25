@@ -9,7 +9,20 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button x:Name="GoBack" Text="Wstecz" Clicked="GoBack_Clicked" />
-        <!-- póki co będzie szło do Workout.xaml, chodzi o to, żeby Marcin miał przejście do swojego charta-->
+        <HorizontalStackLayout>
+            <Label Text="Przypisujesz trening dla użytkownika: " />
+            <Label x:Name="UserNameLabel" Text="{Binding UsersName}" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+        <Label Text="Wybierz trening do przypisania:" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <Label Text="Wybierz mięsień do ćwiczenia" Margin="0,10,0,0" />
+        <Picker x:Name="MusclePicker" Title="Mięsień" SelectedIndexChanged="MusclePicker_SelectedIndexChanged" ItemsSource="{Binding ExercisesMuscles}" ItemDisplayBinding="{Binding ExsMuscleName}" SelectedItem="{Binding SelectedMuscle}"></Picker>
+        <Label Text="Wybierz ćwiczenie" Margin="0,10,0,0" />
+        <Picker x:Name="ExercisePicker" Title="Ćwiczenie" ItemsSource="{Binding Exercises}" ItemDisplayBinding="{Binding ExsName}" SelectedItem="{Binding SelectedExercise}" IsEnabled="{Binding SelectedMuscle, Converter={StaticResource NullToBoolConverter}}"></Picker>
+        <Label Text="Dodaj komentarz do treningu" FontAttributes="Bold" Margin="0,10,0,0" />
+        <Entry x:Name="CommentEntry" Placeholder="Komentarz" Text="{Binding Comment}" />
+        <Label Text="Wybierz datę treningu" FontAttributes="Bold" Margin="0,10,0,0" />
+        <DatePicker x:Name="WorkoutDatePicker" Date="{Binding WorkoutDate}" MinimumDate="{Binding MinDate}" MaximumDate="{Binding MaxDate}" />
+
         <Button x:Name="Assign" Text="Przypisz trening" Clicked="Assign_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

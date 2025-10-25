@@ -67,12 +67,21 @@ public partial class TrainerPage : ContentPage, INotifyPropertyChanged
 
     private async void AssignWorkout_Clicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new NavigationPage(new AssignWorkout((int)UserId));
+        if(UsersListView.SelectedItem is User selectedUser) {
+          //  Debug.WriteLine($"TEST {selectedUser.UsersId}");
+            Application.Current.MainPage = new NavigationPage(new AssignWorkout((int)UserId, selectedUser));
+        }
+        else
+        {
+            await DisplayAlert("Błąd", "Nie wybrano żadnego użytkownika", "OK");
+        }
+        
     }
 
     private void ChangeAccInfo_Clicked(object sender, EventArgs e)
     {
         //póki co nic nie robi
         Debug.WriteLine("ChangeAccInfo Clicked");
+        //chyba najbliżej JONATAN będzie się zajmował czymś pokrewnym (zmiana danych konta, w tym hasła chyba będzie miało sens jak będzie wspólne dla użytkownika i trenera, wsns nie ma sensu tego rozdrabniać na panel dla trenera i panel dla użytkownika, może jutro (te słowa piszę 25.10.2025 23:20, czyli na czas pisania jutro znaczy 26.10.2025) zrobie panel zmiany danych, to JONATAN będzie miał załatwione
     }
 }
