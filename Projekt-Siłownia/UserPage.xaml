@@ -13,5 +13,7 @@
             <Label x:Name="Data"/>
             <Button Text="Odnow Karnet" Clicked="OdnowButton_Clicked"/>
         </StackLayout>
+        <!-- Placeholder by MJ -->
+        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
     </VerticalStackLayout>
 </ContentPage>

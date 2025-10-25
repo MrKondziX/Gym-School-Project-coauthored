@@ -6,4 +6,9 @@ public partial class Progress : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void GoBack_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new UserPage();
+    }
 }

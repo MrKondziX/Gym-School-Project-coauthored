@@ -9,17 +9,11 @@ public partial class Workout : ContentPage
 
     private async void LogOutClicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new NavigationPage(new LoginPage());
+        Application.Current.MainPage = new LoginPage();
     }
 
     private void Button_Clicked(object sender, EventArgs e)
     {
 
-    }
-
-    //Placeholder by MJ
-    private void Progress_Clicked(object sender, EventArgs e)
-    {
-        Application.Current.MainPage = new NavigationPage(new Progress());
     }
 }
