@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt_Siłownia.ChangeAccInfo"
+             Title="ChangeAccInfo">
+    <VerticalStackLayout>
+        <Label 
+            Text="Zmiana danych logowania"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label Text="Nowe imie" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Entry x:Name="NewNameEntry" 
+               Placeholder="Wpisz nowe imie" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" Text="{Binding UserNameM}" />
+        <Label Text="Nowe nazwisko:" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Entry x:Name="NewSurnameEntry" 
+               Placeholder="Wpisz nowe nazwisko" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" Text="{Binding UserSurnameM}" />
+        <Label 
+            Text="Nowy email:" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry x:Name="NewEmailEntry" 
+               Placeholder="Wpisz nowy email" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"  Text="{Binding UserEmailM}" />
+        <Label Text="Nowe hasło:" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry x:Name="NewPasswordEntry" Placeholder="Nowe hasło:" IsPassword="True" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding PasswordM}" />
+        <Label 
+            Text="Potwierdź nowe hasło:" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry x:Name="ConfirmNewPasswordEntry" 
+               Placeholder="Potwierdź nowe hasło:" 
+               IsPassword="True"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" Text="{Binding CheckPasswordM}" />
+        <Button 
+            Text="Zmień dane" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Clicked="SaveChangesButtonClicked" />
+        <Button 
+            Text="Wstecz"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Clicked="CancelButtonClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
