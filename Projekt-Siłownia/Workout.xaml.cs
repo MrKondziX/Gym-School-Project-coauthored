@@ -43,6 +43,13 @@ public partial class Workout : ContentPage
     }
     private void DisplayCurrentExercise()
     {
+        if(Exercises is null)
+        {
+            DisplayAlert("Brak ćwiczeń", "Brak ćwiczeń do wyświetlenia", "OK");
+            Application.Current.MainPage = new UserPage(UserId);
+            return;
+        }
+
         if (ExerciseIndex <= Exercises.Count)
         {
             var exercise = Exercises[ExerciseIndex];
