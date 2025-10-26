@@ -12,6 +12,7 @@ public partial class UsersKlientTreningplan
     public int ExsId { get; set; }
 
     public string TreningplanNote { get; set; } = null!;
+    public int TreningDayWeek { get; set; }
 
     public DateOnly TreningplanDate { get; set; }
 }

@@ -14,9 +14,9 @@ public partial class UserPage : ContentPage
     public UserPage(int userId)
     {
         InitializeComponent();
-        LoadTreningi();
+
         this.UserId = userId;
-        
+        LoadTreningi();
         WczytajKarnet();
 
 
@@ -61,12 +61,14 @@ public partial class UserPage : ContentPage
     {
 
         var treningi = context.UsersKlientTreningplan
-    .AsNoTracking()
-    .Where(tp => tp.UsersKlientId == UserId)
-             .Select(x => $"Trening {x.TreningplanId}")
-             .ToList();
+            .Where(tp => tp.UsersKlientId == UserId)
+            .Select(tp => tp.TreningDayWeek)
+            .Distinct()
+            .Select(day => $"Trening {day}")
+            .ToList();
 
-
+        Debug.WriteLine(treningi.Count);
+        treningi.Add("Brak planu treningowego");
         TreningPicker.ItemsSource = treningi;
         TreningPicker.SelectedIndex = 0;
     }

@@ -92,13 +92,15 @@ public partial class AssignWorkout : ContentPage, INotifyPropertyChanged
         if (q)
         {
             var datetoDb = DateOnly.FromDateTime(WorkoutDate);
-             var newWorkoutPlan = new UsersKlientTreningplan {
-                 TreningplanId = 0,
-                 UsersKlientId = clientId,
-                 ExsId = SelectedExerciseId,
-                 TreningplanNote = Comment,
-                 TreningplanDate = datetoDb
-             };
+            var newWorkoutPlan = new UsersKlientTreningplan
+            {
+                TreningplanId = 0,
+                UsersKlientId = clientId,
+                ExsId = SelectedExerciseId,
+                TreningplanNote = Comment,
+                TreningplanDate = datetoDb,
+                TreningDayWeek = (int)datetoDb.DayOfWeek
+            };
             using var db = new GymAppDbContext();
             db.UsersKlientTreningplan.Add(newWorkoutPlan);
             await db.SaveChangesAsync();
