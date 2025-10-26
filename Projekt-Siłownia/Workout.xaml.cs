@@ -76,7 +76,7 @@ public partial class Workout : ContentPage
             return;
         }
 
-        if (ExerciseIndex <= Exercises.Count)
+        if (ExerciseIndex < Exercises.Count)
         {
             var exercise = Exercises[ExerciseIndex];
             exerciseLabel.Text = exercise.ExsName;
@@ -90,7 +90,7 @@ public partial class Workout : ContentPage
         else
         {
             DisplayAlert("Koniec", "Wszystkie ćwiczenia zakończone!", "OK");
-            Navigation.PopAsync();
+            Application.Current.MainPage = new UserPage((int)UserId);
         }
     }
 
