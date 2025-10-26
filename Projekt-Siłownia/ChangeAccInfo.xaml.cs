@@ -161,11 +161,34 @@ public partial class ChangeAccInfo : ContentPage, INotifyPropertyChanged
 
 
         }
-        
+
     }
     private async void CancelButtonClicked(object sender, EventArgs e)
     {
         await DisplayAlert("Anulowano", "Operacja anulowana", "OK");
-        Application.Current.MainPage = new NavigationPage(new TrainerPage((int)UserId));
+        using var context = new GymAppDbContext();
+        int userType = context.Users
+             .Where(u => u.UsersId == UserId)
+             .Select(u => u.UsersTypeId)
+             .FirstOrDefault();
+        if (userType == 1)
+        {
+            Window.Page = new AdminPage();
+
+        }
+        else if (userType == 2)
+        {
+            Window.Page = new TrainerPage((int)UserId);
+
+        }
+        else if (userType == 3)
+        {
+            using var db = new GymAppDbContext();
+            int userId2 = db.UsersKlients
+                .Where(uk => uk.UsersId == UserId)
+                .Select(uk => uk.UsersKlientId)
+                .FirstOrDefault();
+            Window.Page = new UserPage((int)userId2);
+        }
     }
 }
