@@ -80,6 +80,7 @@ public partial class Workout : ContentPage
             var exercise = Exercises[ExerciseIndex];
             exerciseLabel.Text = exercise.ExsName;
             muscleLabel.Text = $"Partia mięśniowa: {exercise.MuscleGroup}";
+            noteLabel.Text = $"Notatka: {exercise.ExsNote}";
             weightEntry.Text = "";
             repsEntry.Text = "";
             rpeEntry.Text = "";
@@ -94,7 +95,7 @@ public partial class Workout : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-        if (!int.TryParse(weightEntry.Text, out int weight) ||
+        if (!float.TryParse(weightEntry.Text, out float weight) ||
             !int.TryParse(repsEntry.Text, out int reps) ||
             !int.TryParse(rpeEntry.Text, out int rpe))
         {
@@ -116,6 +117,7 @@ public partial class Workout : ContentPage
 
         context.UsersKlientTrenings.Add(treningRecord);
         await context.SaveChangesAsync();
+        context.Entry(treningRecord).State = EntityState.Detached;
 
         curSeries++;
 

@@ -11,7 +11,7 @@ public partial class UsersKlientTrening
 
     public DateOnly UsersKlientTreningDate { get; set; }
 
-    public int TreningWeight { get; set; }
+    public float TreningWeight { get; set; }
 
     public int TreningSeries { get; set; }
 
