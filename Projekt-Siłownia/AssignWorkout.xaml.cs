@@ -100,7 +100,7 @@ public partial class AssignWorkout : ContentPage, INotifyPropertyChanged
                  TreningplanDate = datetoDb
              };
             using var db = new GymAppDbContext();
-            db.UsersKlientTreningplans.Add(newWorkoutPlan);
+            db.UsersKlientTreningplan.Add(newWorkoutPlan);
             await db.SaveChangesAsync();
             await DisplayAlert("Informacja", "Dodano", "OK");
             GoBack_Clicked(sender, e);

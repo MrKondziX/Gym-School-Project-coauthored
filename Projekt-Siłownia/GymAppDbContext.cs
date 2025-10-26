@@ -34,7 +34,7 @@ public partial class GymAppDbContext : DbContext
 
     public virtual DbSet<UsersKlientTreningday> UsersKlientTreningdays { get; set; }
 
-    public virtual DbSet<UsersKlientTreningplan> UsersKlientTreningplans { get; set; }
+    public virtual DbSet<UsersKlientTreningplan> UsersKlientTreningplan { get; set; }
 
     public virtual DbSet<UsersType> UsersTypes { get; set; }
 

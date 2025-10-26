@@ -21,7 +21,7 @@ public partial class Workout : ContentPage
     private async Task LoadExercises()
     {
         var Exercises = await (
-            from plan in context.UsersKlientTreningplans
+            from plan in context.UsersKlientTreningplan
             where plan.UsersKlientId == UserId
             join ex in context.Exercises on plan.ExsId equals ex.ExsId into exJoin
             from ex in exJoin.DefaultIfEmpty()
@@ -114,5 +114,4 @@ public partial class Workout : ContentPage
     {
         Application.Current.MainPage = new LoginPage();
     }
-    int  a = 0;
 }

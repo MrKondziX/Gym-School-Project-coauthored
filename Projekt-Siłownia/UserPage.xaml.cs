@@ -53,7 +53,8 @@ public partial class UserPage : ContentPage
 
     private void LoadTreningi()
     {
-        var treningi = context.UsersKlientTreningplans
+
+        var treningi = context.UsersKlientTreningplan
              .Where(tp => tp.UsersKlientId == UserId)
              .Select(tp => $"Trening {tp.TreningplanId}")
              .ToList();
