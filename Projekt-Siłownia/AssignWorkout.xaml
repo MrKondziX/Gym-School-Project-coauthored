@@ -4,10 +4,6 @@
              x:Class="Projekt_Siłownia.AssignWorkout"
              Title="AssignWorkout">
     <VerticalStackLayout>
-        <Label 
-            Text="Placeholder"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
         <Button x:Name="GoBack" Text="Wstecz" Clicked="GoBack_Clicked" />
         <HorizontalStackLayout>
             <Label Text="Przypisujesz trening dla użytkownika: " />

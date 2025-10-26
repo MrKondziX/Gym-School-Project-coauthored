@@ -82,6 +82,7 @@ public partial class TrainerPage : ContentPage, INotifyPropertyChanged
     {
         //póki co nic nie robi
         Debug.WriteLine("ChangeAccInfo Clicked");
+        Application.Current.MainPage = new NavigationPage(new ChangeAccInfo((int)UserId));
         //chyba najbliżej JONATAN będzie się zajmował czymś pokrewnym (zmiana danych konta, w tym hasła chyba będzie miało sens jak będzie wspólne dla użytkownika i trenera, wsns nie ma sensu tego rozdrabniać na panel dla trenera i panel dla użytkownika, może jutro (te słowa piszę 25.10.2025 23:20, czyli na czas pisania jutro znaczy 26.10.2025) zrobie panel zmiany danych, to JONATAN będzie miał załatwione
     }
 }
