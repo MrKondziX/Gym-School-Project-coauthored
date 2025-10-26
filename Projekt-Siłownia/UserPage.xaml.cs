@@ -16,22 +16,28 @@ public partial class UserPage : ContentPage
         InitializeComponent();
         LoadTreningi();
         this.UserId = userId;
+        
         WczytajKarnet();
 
 
     }
     private void WczytajKarnet()
     {
+        Debug.WriteLine(UserId);
         var dzisiaj = DateOnly.FromDateTime(DateTime.Today);
-
         var aktywny = context.UsersKlientCarnets
-            .FirstOrDefault(ukc => ukc.UsersKlientId == UserId
-                                && ukc.CarnetEnddate >= dzisiaj);
+            .Where(ukc => ukc.UsersKlientId == UserId && ukc.CarnetEnddate >= dzisiaj)
+            .OrderByDescending(ukc => ukc.UsersKlientCarnetId)
+            .FirstOrDefault();
+
 
         if (aktywny != null)
         {
             var karnet = context.Carnets
-                .FirstOrDefault(c => c.CarnetId == aktywny.CarnetId);
+                .Where(c => c.CarnetId == aktywny.CarnetId)
+                .OrderByDescending(c => c.CarnetId)
+                .FirstOrDefault();
+
 
             if (karnet != null)
             {
@@ -55,8 +61,9 @@ public partial class UserPage : ContentPage
     {
 
         var treningi = context.UsersKlientTreningplan
-             .Where(tp => tp.UsersKlientId == UserId)
-             .Select(tp => $"Trening {tp.TreningplanId}")
+    .AsNoTracking()
+    .Where(tp => tp.UsersKlientId == UserId)
+             .Select(x => $"Trening {x.TreningplanId}")
              .ToList();
 
 

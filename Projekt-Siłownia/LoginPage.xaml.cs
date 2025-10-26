@@ -54,7 +54,12 @@ namespace Projekt_Siłownia
                 else if (userType == 3)
                 {
                     await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
-                    Window.Page = new UserPage((int)userId);
+                    using var db = new GymAppDbContext();
+                    int userId2 = db.UsersKlients
+                        .Where(uk => uk.UsersId == userId)
+                        .Select(uk => uk.UsersKlientId)
+                        .FirstOrDefault();
+                    Window.Page = new UserPage((int)userId2);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
                   //  Debug.WriteLine(userId); ---> zostawiam zakomentowane na wszelki wypadek, może sie przydać do debugowania
