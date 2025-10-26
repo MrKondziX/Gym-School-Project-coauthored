@@ -8,7 +8,8 @@ public partial class Workout : ContentPage
     public int TreningId;
     public int ExerciseIndex = 0;
     public int curSeries = 0;
-    public int Series = 3; 
+    public int Series = 3;
+    public int TreningDayId;
     public List<Exercies_View> Exercises;
     GymAppDbContext context = new GymAppDbContext();
     public int UserId { get; set; }
@@ -21,6 +22,26 @@ public partial class Workout : ContentPage
     }
     private async Task LoadExercises()
     {
+        var treningDay = new UsersKlientTreningday
+        {
+            UsersKlientId = UserId,
+           
+
+            UsersTreningdayDate = DateOnly.FromDateTime(DateTime.Today),
+            UsersTreningdayTime = DateTime.Today.Add(TimeOnly.FromDateTime(DateTime.Now).ToTimeSpan()).ToString()
+
+        };
+
+
+        context.UsersKlientTreningdays.Add(treningDay);
+        await context.SaveChangesAsync();
+
+        this.TreningDayId = context.UsersKlientTreningdays
+          .Where(c => c.UsersKlientId == UserId)
+          .OrderByDescending(c => c.UsersTreningdayId)
+          .Select(c => c.UsersTreningdayId)
+          .FirstOrDefault();
+
         Exercises = await (
             from plan in context.UsersKlientTreningplan
             where plan.UsersKlientId == UserId
@@ -88,9 +109,9 @@ public partial class Workout : ContentPage
             UsersKlientId = UserId,
             TreningWeight = weight,
             TreningSeries = curSeries + 1,
-
+            ExsId = Exercises[ExerciseIndex].ExsId,
             UsersKlientTreningDate = DateOnly.FromDateTime(DateTime.Today),
-            UsersTreningdayId = (int)DateOnly.FromDateTime(DateTime.Today).DayOfWeek
+            UsersTreningdayId = TreningDayId
         };
 
         context.UsersKlientTrenings.Add(treningRecord);
