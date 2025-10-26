@@ -64,13 +64,13 @@ public partial class UserPage : ContentPage
             .Where(tp => tp.UsersKlientId == UserId)
             .Select(tp => tp.TreningDayWeek)
             .Distinct()
-            .Select(day => $"Trening {day}")
+            .Select(day => new TreningOption { DayValue = day })
             .ToList();
 
-        Debug.WriteLine(treningi.Count);
-        treningi.Add("Brak planu treningowego");
+
         TreningPicker.ItemsSource = treningi;
         TreningPicker.SelectedIndex = 0;
+
     }
     private async void LogOutClicked(object sender, EventArgs e)
     {
@@ -85,7 +85,9 @@ public partial class UserPage : ContentPage
 
     private void Start_Clicked(object sender, EventArgs e)
     {
-        Window.Page = new Workout((int)TreningPicker.SelectedIndex, (int)UserId);
+        var selected = TreningPicker.SelectedItem as TreningOption;
+        Debug.WriteLine(selected.DayValue);
+        Window.Page = new Workout((int)selected.DayValue, (int)UserId);
     }
     //Placeholder by MJ
     private void Progress_Clicked(object sender, EventArgs e)

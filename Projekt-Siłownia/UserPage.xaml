@@ -6,7 +6,7 @@
     <VerticalStackLayout>
         <Label Text="User Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
-        <Picker ItemDisplayBinding="{Binding}" x:Name="TreningPicker"/>
+        <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
         <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
         <Label Text="Moje Karnety"/>
         <StackLayout Background="Black">

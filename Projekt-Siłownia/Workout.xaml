@@ -5,10 +5,12 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Margin="30">
             <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+            <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
             <Label Text="Workout Page" HorizontalOptions="Center" FontSize="24"/>
             <Label x:Name="exerciseLabel" Text="Ćwiczenie" HorizontalTextAlignment="Center" FontSize="18"/>
             <Label x:Name="muscleLabel" Text="Partia mięśniowa" HorizontalTextAlignment="Center" FontSize="16"/>
             <Label x:Name="noteLabel" Text="" HorizontalTextAlignment="Center" FontSize="16"/>
+            
 
             <Label Text="Ciężar"/>
             <Entry x:Name="weightEntry" Keyboard="Numeric"/>

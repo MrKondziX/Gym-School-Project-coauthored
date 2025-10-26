@@ -41,10 +41,10 @@ public partial class Workout : ContentPage
           .OrderByDescending(c => c.UsersTreningdayId)
           .Select(c => c.UsersTreningdayId)
           .FirstOrDefault();
-
         Exercises = await (
             from plan in context.UsersKlientTreningplan
             where plan.UsersKlientId == UserId
+               && plan.TreningDayWeek == TreningId 
             join ex in context.Exercises on plan.ExsId equals ex.ExsId into exJoin
             from ex in exJoin.DefaultIfEmpty()
             join muscle in context.ExercisesMuscles on ex.ExsMuscleId equals muscle.ExsMuscleId into mJoin
@@ -57,6 +57,7 @@ public partial class Workout : ContentPage
                 MuscleGroup = muscle.ExsMuscleName,
                 ExsNote = plan.TreningplanNote
             }).ToListAsync();
+
 
 
 
@@ -150,4 +151,10 @@ public partial class Workout : ContentPage
     {
         Application.Current.MainPage = new LoginPage();
     }
+    private async void GoBack_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new UserPage((int)UserId);
+    }
+    
 }
+
