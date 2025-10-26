@@ -9,7 +9,7 @@
         <Picker ItemDisplayBinding="{Binding}" x:Name="TreningPicker"/>
         <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
         <Label Text="Moje Karnety"/>
-        <StackLayout Background="AliceBlue">
+        <StackLayout Background="Black">
             
             <Label x:Name="Rodzaj"/>
             <Label x:Name="Data"/>

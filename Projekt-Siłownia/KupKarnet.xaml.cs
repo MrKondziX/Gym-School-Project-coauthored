@@ -1,5 +1,3 @@
-
-
 namespace Projekt_Siłownia;
 
 public partial class KupKarnet : ContentPage

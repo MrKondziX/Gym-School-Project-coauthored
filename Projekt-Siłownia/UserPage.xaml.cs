@@ -80,7 +80,7 @@ public partial class UserPage : ContentPage
     //Placeholder by MJ
     private void Progress_Clicked(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new NavigationPage(new Progress());
+        Application.Current.MainPage = new NavigationPage(new Progress(UserId));
     }
 
 }
