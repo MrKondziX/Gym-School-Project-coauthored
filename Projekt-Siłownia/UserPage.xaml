@@ -6,6 +6,7 @@
     <VerticalStackLayout>
         <Label Text="User Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <Button x:Name="ChangeAccInfo" Text="Zmień dane konta" Clicked="ChangeAccInfo_Clicked" />
         <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
         <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
         <Label Text="Moje Karnety"/>

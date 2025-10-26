@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging.Abstractions;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -132,7 +133,32 @@ public partial class ChangeAccInfo : ContentPage, INotifyPropertyChanged
             context.Users.Update(modifiedUser);
             await context.SaveChangesAsync();
             await DisplayAlert("Sukces", "Dane zostały zaktualizowane", "OK");
-            Application.Current.MainPage = new NavigationPage(new TrainerPage((int)UserId));
+            int userType = context.Users
+            .Where(u => u.UsersId == UserId)
+            .Select(u => u.UsersTypeId)
+            .FirstOrDefault();
+            if (userType == 1)
+            {
+                Window.Page = new AdminPage();
+
+            }
+            else if (userType == 2)
+            {
+                Window.Page = new TrainerPage((int)UserId);
+
+            }
+            else if (userType == 3)
+            {
+                using var db = new GymAppDbContext();
+                int userId2 = db.UsersKlients
+                    .Where(uk => uk.UsersId == UserId)
+                    .Select(uk => uk.UsersKlientId)
+                    .FirstOrDefault();
+                Window.Page = new UserPage((int)userId2);
+
+                //  Debug.WriteLine(userId); ---> zostawiam zakomentowane na wszelki wypadek, może sie przydać do debugowania
+            }
+
 
         }
         

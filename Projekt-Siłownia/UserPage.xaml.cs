@@ -94,5 +94,18 @@ public partial class UserPage : ContentPage
     {
         Application.Current.MainPage = new NavigationPage(new Progress(UserId));
     }
+    private void ChangeAccInfo_Clicked(object sender, EventArgs e)
+    {
+        //póki co nic nie robi
+        Debug.WriteLine("ChangeAccInfo Clicked");
+        int userId2 = context.UsersKlients
+            .Where(uk => uk.UsersKlientId == 
+            UserId)
+            .Select(uk => uk.UsersId)
+            .FirstOrDefault();
+
+        Application.Current.MainPage = new NavigationPage(new ChangeAccInfo((int)userId2));
+        //chyba najbliżej JONATAN będzie się zajmował czymś pokrewnym (zmiana danych konta, w tym hasła chyba będzie miało sens jak będzie wspólne dla użytkownika i trenera, wsns nie ma sensu tego rozdrabniać na panel dla trenera i panel dla użytkownika, może jutro (te słowa piszę 25.10.2025 23:20, czyli na czas pisania jutro znaczy 26.10.2025) zrobie panel zmiany danych, to JONATAN będzie miał załatwione
+    }
 
 }
