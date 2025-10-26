@@ -30,6 +30,16 @@ namespace Projekt_Siłownia
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+            var createdUser = await _context.Users.FirstOrDefaultAsync(u => u.UsersLogin == usersLogin); // trzeba wydobyć ID z bazy danych, gdyż do działania AUTO_INCREMENT trzeba bazie danych dać ID 0, chyba że ktoś będzie miał lepszy pomysł niż to
+
+            var userKlient = new UsersKlient
+            {
+                UsersKlientId = 0,
+                UsersId = createdUser.UsersId,
+                UsersCoachId = 1
+            };
+            _context.UsersKlients.Add(userKlient);
+            await _context.SaveChangesAsync();
             return "Zarejestrowano Pomyślnie";
         }
 

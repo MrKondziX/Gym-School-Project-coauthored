@@ -16,6 +16,6 @@
             <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
         </StackLayout>
         <!-- Placeholder by MJ -->
-        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Progress" HorizontalOptions="Center"></Button>
+        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
     </VerticalStackLayout>
 </ContentPage>
