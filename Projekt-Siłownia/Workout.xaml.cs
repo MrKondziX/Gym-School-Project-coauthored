@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace Projekt_Siłownia;
 
@@ -20,7 +21,7 @@ public partial class Workout : ContentPage
     }
     private async Task LoadExercises()
     {
-        var Exercises = await (
+        Exercises = await (
             from plan in context.UsersKlientTreningplan
             where plan.UsersKlientId == UserId
             join ex in context.Exercises on plan.ExsId equals ex.ExsId into exJoin
@@ -43,6 +44,9 @@ public partial class Workout : ContentPage
     }
     private void DisplayCurrentExercise()
     {
+
+        Debug.WriteLine($"test: Uid: {UserId} Ex: {Exercises}");
+
         if(Exercises is null)
         {
             DisplayAlert("Brak ćwiczeń", "Brak ćwiczeń do wyświetlenia", "OK");
