@@ -88,7 +88,9 @@ public partial class Workout : ContentPage
             UsersKlientId = UserId,
             TreningWeight = weight,
             TreningSeries = curSeries + 1,
-            UsersTreningdayId = (int)DateTime.Now.DayOfWeek
+
+            UsersKlientTreningDate = DateOnly.FromDateTime(DateTime.Today),
+            UsersTreningdayId = (int)DateOnly.FromDateTime(DateTime.Today).DayOfWeek
         };
 
         context.UsersKlientTrenings.Add(treningRecord);
