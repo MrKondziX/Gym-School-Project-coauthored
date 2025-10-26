@@ -89,6 +89,9 @@
 	  <MauiXaml Update="AssignWorkout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="KupKarnet.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Progress.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

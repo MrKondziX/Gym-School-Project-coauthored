@@ -17,6 +17,6 @@ public partial class AssignWorkout : ContentPage
 
     private async void Assign_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Workout());
+        await Navigation.PushAsync(new Workout(1, (int)UserId));//zróbcie se na wlasciwe id treningu 
     }
 }

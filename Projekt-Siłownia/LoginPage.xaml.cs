@@ -10,6 +10,7 @@ namespace Projekt_Siłownia
         public LoginPage()
         {
             InitializeComponent();
+
         }
 
         /*Przejście Do Strony Zarejestruj Się*/
@@ -53,7 +54,7 @@ namespace Projekt_Siłownia
                 else if (userType == 3)
                 {
                     await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
-                    Window.Page = new UserPage();
+                    Window.Page = new UserPage((int)userId);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
                   //  Debug.WriteLine(userId); ---> zostawiam zakomentowane na wszelki wypadek, może sie przydać do debugowania

@@ -3,27 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.Workout">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Margin="30,30,30,30">
+        <StackLayout Orientation="Vertical" Margin="30">
             <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
-            <Label Text="Workout Page" 
-                      HorizontalOptions="Center" 
-                      FontSize="24" Margin="5,5,5,5"/>
-            <Label Text="Binding Excercise" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Label Text="Ciężar" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Entry Placeholder="Binding" 
-                   Keyboard="Numeric" Margin="5,5,5,5"/>
-            <Label Text="Powtórzenia" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Entry Placeholder="Binding" 
-                   Keyboard="Numeric" Margin="5,5,5,5"/>
-            <Label Text="RPE" Margin="5,5,5,5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Entry Placeholder="Binding" 
-                   Keyboard="Numeric" Margin="5,5,5,5"/>
-            <Button Text="Zapisz" 
-                    HorizontalOptions="Center" 
-                    Clicked="Button_Clicked"/>
+            <Label Text="Workout Page" HorizontalOptions="Center" FontSize="24"/>
+            <Label x:Name="exerciseLabel" Text="Ćwiczenie" HorizontalTextAlignment="Center" FontSize="18"/>
+            <Label x:Name="muscleLabel" Text="Partia mięśniowa" HorizontalTextAlignment="Center" FontSize="16"/>
 
-            <!-- Placeholder by MJ -->
-            <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Progress" HorizontalOptions="Center"></Button>
+            <Label Text="Ciężar"/>
+            <Entry x:Name="weightEntry" Keyboard="Numeric"/>
+
+            <Label Text="Powtórzenia"/>
+            <Entry x:Name="repsEntry" Keyboard="Numeric"/>
+
+            <Label Text="RPE"/>
+            <Entry x:Name="rpeEntry" Keyboard="Numeric"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="➖" Clicked="DecreaseSeries"/>
+                <Label x:Name="seriesLabel" Text="Serie: 3" FontSize="16" VerticalTextAlignment="Center"/>
+                <Button Text="➕" Clicked="IncreaseSeries"/>
+            </StackLayout>
+
+            <Button Text="Zapisz" HorizontalOptions="Center" Clicked="Button_Clicked"/>
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

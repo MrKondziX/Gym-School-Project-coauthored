@@ -6,12 +6,16 @@
     <VerticalStackLayout>
         <Label Text="User Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
-        <Picker/>
+        <Picker ItemDisplayBinding="{Binding}" x:Name="TreningPicker"/>
+        <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
         <Label Text="Moje Karnety"/>
         <StackLayout Background="AliceBlue">
+            
             <Label x:Name="Rodzaj"/>
             <Label x:Name="Data"/>
-            <Button Text="Odnow Karnet" Clicked="OdnowButton_Clicked"/>
+            <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
         </StackLayout>
+        <!-- Placeholder by MJ -->
+        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Progress" HorizontalOptions="Center"></Button>
     </VerticalStackLayout>
 </ContentPage>

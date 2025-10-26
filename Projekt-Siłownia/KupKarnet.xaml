@@ -1,0 +1,16 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Projekt_Siłownia.KupKarnet"
+             Title="KupKarnet">
+    <StackLayout Padding="20" Spacing="15" BackgroundColor="AliceBlue">
+        <Label Text="Wybierz typ karnetu:" FontSize="18"/>
+
+        <Picker x:Name="CarnetPicker"
+                ItemDisplayBinding="{Binding CarnetName}"
+                SelectedIndexChanged="CarnetPicker_SelectedIndexChanged"/>
+
+        <Label x:Name="CzasTrwaniaLabel" FontSize="16" TextColor="DarkSlateGray"/>
+
+        <Button Text="Kup Karnet" Clicked="KupKarnet_Clicked"/>
+    </StackLayout>
+</ContentPage>
