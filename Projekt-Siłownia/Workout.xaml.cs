@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace Projekt_Siłownia;
 
@@ -66,9 +65,6 @@ public partial class Workout : ContentPage
     }
     private void DisplayCurrentExercise()
     {
-
-        Debug.WriteLine($"test: Uid: {UserId} Ex: {Exercises}");
-
         if(Exercises is null)
         {
             DisplayAlert("Brak ćwiczeń", "Brak ćwiczeń do wyświetlenia", "OK");

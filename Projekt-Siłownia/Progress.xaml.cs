@@ -1,6 +1,7 @@
-using Microsoft.Maui.Controls;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 
 namespace Projekt_Siłownia;
 
@@ -22,7 +23,6 @@ public partial class Progress : ContentPage
     }
 
 
-
     private void SetUpChart()
     {
         using var db = new GymAppDbContext();
@@ -40,10 +40,38 @@ public partial class Progress : ContentPage
         .OrderBy(x => x.TreningDate)
         .ToList();
 
-        foreach (var item in chartData)
+        string[] dates = chartData.Select(x => x.TreningDate.ToString("yyyy-MM-dd")).ToArray();
+        double[] scores = chartData.Select(x => x.TotalScore).ToArray();
+
+        var series = new ISeries[]
         {
-            Debug.WriteLine($"Date: {item.TreningDate}, Total Score: {item.TotalScore}");
-        }
+            new ColumnSeries<double>
+            {
+                Name = "Score",
+                Values = scores,
+                Fill = new SolidColorPaint(SKColors.DeepSkyBlue)
+            }
+        };
+
+        ScoreChart.Series = series;
+
+        ScoreChart.XAxes = new Axis[]
+        {
+            new Axis
+            {
+                Labels = dates,
+                LabelsRotation = 0,
+                Name = "Date"
+            }
+        };
+
+        ScoreChart.YAxes = new Axis[]
+        {
+            new Axis
+            {
+                Name = "Total Score"
+            }
+        };
     }
 
 

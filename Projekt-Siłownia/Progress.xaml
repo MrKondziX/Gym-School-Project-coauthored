@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.Progress"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui">
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             NavigationPage.HasNavigationBar="False">
 
 
     <Grid RowDefinitions="Auto,*, Auto">
         <Label Text="Śledzenie postępów" Grid.Row="0" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
-        <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}" Grid.Row="1" Margin="10, 0, 10, 0">
+        <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}" Grid.Row="1" Margin="10, 0, 10, 0" x:Name="ScoreChart">
             <lvc:CartesianChart.Series>
                 <lvc:SeriesCollection>
                     <lvc:XamlColumnSeries SeriesName="Score" Values="67, 69, 420, 2137"/>
