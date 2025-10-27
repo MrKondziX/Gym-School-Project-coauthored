@@ -6,5 +6,28 @@
     <VerticalStackLayout>
         <Label Text="Admin Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Lista Użytkowników" Clicked="OnLayout1Clicked"/>
+            <Button Text="Edycja trenerów" Clicked="OnLayout2Clicked"/>
+            <Button Text="Edycja Ćwiczeń" Clicked="OnLayout3Clicked"/>
+        </HorizontalStackLayout>
+
+        <!-- Wygląd 1 -->
+        <VerticalStackLayout x:Name="layout1" IsVisible="True" Opacity="1">
+            <BoxView Color="LightBlue" HeightRequest="100"/>
+            <Label Text="Lista uzytkowników" />
+        </VerticalStackLayout>
+
+        <!-- Wygląd 2 -->
+        <VerticalStackLayout x:Name="layout2" IsVisible="False" Opacity="0">
+            <BoxView Color="LightGreen" HeightRequest="100"/>
+            <Label Text="Edycja trenerów" />
+        </VerticalStackLayout>
+
+        <!-- Wygląd 3 -->
+        <VerticalStackLayout x:Name="layout3" IsVisible="False" Opacity="0">
+            <BoxView Color="LightCoral" HeightRequest="100"/>
+            <Label Text="Edycja Ćwiczeń" />
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
