@@ -143,10 +143,7 @@ public partial class Workout : ContentPage
             seriesLabel.Text = $"Serie: {Series}";
         }
     }
-    private async void LogOutClicked(object sender, EventArgs e)
-    {
-        Application.Current.MainPage = new LoginPage();
-    }
+
     private async void GoBack_Clicked(object sender, EventArgs e)
     {
         Application.Current.MainPage = new UserPage((int)UserId);

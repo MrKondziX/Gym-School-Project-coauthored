@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Projekt_Siłownia.Workout">
+             x:Class="Projekt_Siłownia.Workout" Style="{StaticResource ContentPageStyle}">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Margin="30">
-            <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <VerticalStackLayout>
             <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
             <Label Text="Workout Page" HorizontalOptions="Center" FontSize="24"/>
             <Label x:Name="exerciseLabel" Text="Ćwiczenie" HorizontalTextAlignment="Center" FontSize="18"/>
@@ -21,14 +20,14 @@
             <Label Text="RPE"/>
             <Entry x:Name="rpeEntry" Keyboard="Numeric"/>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <HorizontalStackLayout>
                 <Button Text="➖" Clicked="DecreaseSeries"/>
                 <Label x:Name="seriesLabel" Text="Serie: 3" FontSize="16" VerticalTextAlignment="Center"/>
                 <Button Text="➕" Clicked="IncreaseSeries"/>
-            </StackLayout>
+            </HorizontalStackLayout>
 
             <Button Text="Zapisz" HorizontalOptions="Center" Clicked="Button_Clicked"/>
-        </StackLayout>
+        </VerticalStackLayout>
 
     </ContentPage.Content>
 </ContentPage>

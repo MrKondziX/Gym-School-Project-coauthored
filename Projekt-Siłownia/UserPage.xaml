@@ -2,21 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.UserPage"
-             Title="UserPage">
+             Title="UserPage" Style="{StaticResource ContentPageStyle}">
     <VerticalStackLayout>
-        <Label Text="User Page"/>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
         <Button x:Name="ChangeAccInfo" Text="Zmień dane konta" Clicked="ChangeAccInfo_Clicked" />
         <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
         <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
         <Label Text="Moje Karnety"/>
-        <StackLayout Background="Black">
-            
+        <VerticalStackLayout>
             <Label x:Name="Rodzaj"/>
             <Label x:Name="Data"/>
             <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
-        </StackLayout>
-        <!-- Placeholder by MJ -->
+        </VerticalStackLayout>
+        
         <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
     </VerticalStackLayout>
 </ContentPage>

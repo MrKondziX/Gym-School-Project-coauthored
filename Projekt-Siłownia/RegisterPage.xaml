@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.RegisterPage"
              BackgroundColor="Black"
-             Title="Zarejestruj Się">
+             Title="Zarejestruj Się" Style="{StaticResource ContentPageStyle}">
 
         <Grid RowDefinitions="Auto, *" ColumnDefinitions="*">
             <Frame Grid.Row="1"

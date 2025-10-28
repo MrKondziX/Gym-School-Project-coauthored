@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.ChangeAccInfo"
-             Title="ChangeAccInfo">
+             Title="ChangeAccInfo" Style="{StaticResource ContentPageStyle}">
     <VerticalStackLayout>
         <Label 
             Text="Zmiana danych logowania"

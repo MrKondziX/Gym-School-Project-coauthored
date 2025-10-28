@@ -89,7 +89,7 @@ public partial class UserPage : ContentPage
         Debug.WriteLine(selected.DayValue);
         Window.Page = new Workout((int)selected.DayValue, (int)UserId);
     }
-    //Placeholder by MJ
+   
     private void Progress_Clicked(object sender, EventArgs e)
     {
         Application.Current.MainPage = new NavigationPage(new Progress(UserId));
