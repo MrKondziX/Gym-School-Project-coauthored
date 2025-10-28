@@ -6,10 +6,11 @@
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Label Text="Strona główna" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
-        <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
-        <Button x:Name="ChangeAccInfo" Text="Zmień dane konta" Clicked="ChangeAccInfo_Clicked" />
+        
         <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
         <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
+        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
+        
         <Label Text="Moje Karnety"/>
         <VerticalStackLayout>
             <Label x:Name="Rodzaj"/>
@@ -17,6 +18,7 @@
             <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
         </VerticalStackLayout>
         
-        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
+        <Button x:Name="ChangeAccInfo" Text="Zmień dane konta" Clicked="ChangeAccInfo_Clicked" />
+        <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
     </VerticalStackLayout>
 </ContentPage>

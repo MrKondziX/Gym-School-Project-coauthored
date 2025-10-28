@@ -13,7 +13,9 @@
 
         <Label x:Name="CzasTrwaniaLabel" FontSize="16"/>
 
-        <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
-        <Button Text="Kup Karnet" Clicked="KupKarnet_Clicked"/>
+        <HorizontalStackLayout>
+            <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
+            <Button Text="Kup Karnet" Clicked="KupKarnet_Clicked"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

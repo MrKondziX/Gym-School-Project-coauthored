@@ -6,30 +6,37 @@
     <ContentPage.Content>
         <VerticalStackLayout>
             <Label Text="Dodawanie wykonanych ćwiczeń" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
-            
-            <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
-            <Label Text="Workout Page" HorizontalOptions="Center" FontSize="24"/>
+
             <Label x:Name="exerciseLabel" Text="Ćwiczenie" HorizontalTextAlignment="Center" FontSize="18"/>
             <Label x:Name="muscleLabel" Text="Partia mięśniowa" HorizontalTextAlignment="Center" FontSize="16"/>
             <Label x:Name="noteLabel" Text="" HorizontalTextAlignment="Center" FontSize="16"/>
-            
-
-            <Label Text="Ciężar"/>
-            <Entry x:Name="weightEntry" Keyboard="Numeric"/>
-
-            <Label Text="Powtórzenia"/>
-            <Entry x:Name="repsEntry" Keyboard="Numeric"/>
-
-            <Label Text="RPE"/>
-            <Entry x:Name="rpeEntry" Keyboard="Numeric"/>
 
             <HorizontalStackLayout>
-                <Button Text="➖" Clicked="DecreaseSeries"/>
+                <Label Text="Ciężar"/>
+                <Entry x:Name="weightEntry" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="Powtórzenia"/>
+                <Entry x:Name="repsEntry" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="RPE"/>
+                <Entry x:Name="rpeEntry" Keyboard="Numeric"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Button Text="➖" Clicked="DecreaseSeries" WidthRequest="50"/>
                 <Label x:Name="seriesLabel" Text="Serie: 3" FontSize="16" VerticalTextAlignment="Center"/>
-                <Button Text="➕" Clicked="IncreaseSeries"/>
+                <Button Text="➕" Clicked="IncreaseSeries" WidthRequest="50"/>
             </HorizontalStackLayout>
 
-            <Button Text="Zapisz" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            <HorizontalStackLayout>
+                <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
+                <Button Text="Zapisz" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+            </HorizontalStackLayout>
+            
         </VerticalStackLayout>
 
     </ContentPage.Content>
