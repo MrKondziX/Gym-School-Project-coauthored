@@ -12,10 +12,7 @@
             <VerticalStackLayout Spacing="15" HorizontalOptions="Center">
 
                 <!-- Nagłówek -->
-                <Label Text="LOGOWANIE"
-                       FontSize="28"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"/>
+                <Label Text="Zaloguj się" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
 
                 <!-- Login -->
                 <Entry Placeholder="Login"

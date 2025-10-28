@@ -22,6 +22,6 @@
             </lvc:CartesianChart.XAxes>
         </lvc:CartesianChart>
 
-        <Button Text="Wróć" Grid.Row="2" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
+        <Button Text="Wstecz" Grid.Row="2" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
     </Grid>
 </ContentPage>

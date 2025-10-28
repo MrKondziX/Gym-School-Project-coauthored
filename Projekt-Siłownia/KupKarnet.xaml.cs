@@ -53,4 +53,9 @@ public partial class KupKarnet : ContentPage
         await DisplayAlert("Sukces", $"Zakupiono: {wybrany.CarnetName}", "OK");
         Window.Page = new UserPage((int)UserId);
     }
+
+    private async void GoBack_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new UserPage((int)UserId);
+    }
 }

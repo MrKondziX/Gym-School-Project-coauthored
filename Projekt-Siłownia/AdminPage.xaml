@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.AdminPage"
-             Title="AdminPage" Style="{StaticResource ContentPageStyle}">
+             Title="AdminPage" Style="{StaticResource ContentPageStyle}"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label Text="Admin Page"/>
+        <Label Text="Strona Administratora" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
         <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
         <HorizontalStackLayout Spacing="10">
             <Button Text="Lista Użytkowników" Clicked="OnLayout1Clicked"/>

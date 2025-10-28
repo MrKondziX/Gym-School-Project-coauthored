@@ -47,7 +47,7 @@ public partial class Progress : ContentPage
         {
             new ColumnSeries<double>
             {
-                Name = "Score",
+                Name = "Wynik",
                 Values = scores,
                 Fill = new SolidColorPaint(SKColors.DeepSkyBlue)
             }
@@ -61,7 +61,7 @@ public partial class Progress : ContentPage
             {
                 Labels = dates,
                 LabelsRotation = 0,
-                Name = "Date"
+                Name = "Data"
             }
         };
 
@@ -69,7 +69,7 @@ public partial class Progress : ContentPage
         {
             new Axis
             {
-                Name = "Total Score"
+                Name = "Łączny wynik"
             }
         };
     }

@@ -165,7 +165,6 @@ public partial class ChangeAccInfo : ContentPage, INotifyPropertyChanged
     }
     private async void CancelButtonClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Anulowano", "Operacja anulowana", "OK");
         using var context = new GymAppDbContext();
         int userType = context.Users
              .Where(u => u.UsersId == UserId)

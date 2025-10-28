@@ -37,7 +37,6 @@ namespace Projekt_Siłownia
             {
                 if (userType == 1)
                 {
-                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
                     Window.Page = new AdminPage();
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
@@ -45,7 +44,6 @@ namespace Projekt_Siłownia
                 }
                 else if (userType == 2)
                 {
-                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
                     Window.Page = new TrainerPage((int)userId);
                     LoginEntry.Text = string.Empty;
                     PassEntry.Text = string.Empty;
@@ -53,7 +51,6 @@ namespace Projekt_Siłownia
                 }
                 else if (userType == 3)
                 {
-                    await DisplayAlert("Sukces", "Zalogowano Pomyślnie", "OK");
                     using var db = new GymAppDbContext();
                     int userId2 = db.UsersKlients
                         .Where(uk => uk.UsersId == userId)

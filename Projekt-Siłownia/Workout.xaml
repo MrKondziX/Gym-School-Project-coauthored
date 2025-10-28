@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Projekt_Siłownia.Workout" Style="{StaticResource ContentPageStyle}">
+             x:Class="Projekt_Siłownia.Workout" Style="{StaticResource ContentPageStyle}"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <VerticalStackLayout>
+            <Label Text="Dodawanie wykonanych ćwiczeń" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
+            
             <Button Text="Wstecz" Clicked="GoBack_Clicked"/>
             <Label Text="Workout Page" HorizontalOptions="Center" FontSize="24"/>
             <Label x:Name="exerciseLabel" Text="Ćwiczenie" HorizontalTextAlignment="Center" FontSize="18"/>
