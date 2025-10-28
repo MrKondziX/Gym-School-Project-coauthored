@@ -1,15 +1,47 @@
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Projekt_Siłownia;
 
-public partial class AdminPage : ContentPage
+public partial class AdminPage : ContentPage , INotifyPropertyChanged
 {
+    public event PropertyChangedEventHandler? PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+    private ObservableCollection<User> users;
+    public ObservableCollection<User> Users
+    {
+        get => users;
+        set
+        {
+            users = value;
+            OnPropertyChanged();
+        }
+    }
+    private string trainerName;
+    public string TrainerName
+    {
+        get => trainerName;
+        set
+        {
+            trainerName = value;
+            OnPropertyChanged();
+        }
+    }
     private readonly AuthService _authService = new();
     public AdminPage()
 	{
 		InitializeComponent();
-	}
+
+        Users = new ObservableCollection<User>();
+        this.BindingContext = this;
+        InsertData();
+    }
 
     private async void LogOutClicked(object sender, EventArgs e)
     {
@@ -107,13 +139,42 @@ public partial class AdminPage : ContentPage
     }
 
     private async void OnLayout1Clicked(object sender, EventArgs e)
-        => await ShowOnlyAsync(layout1);
-
+    { 
+        await ShowOnlyAsync(layout1);
+        InsertData();
+    }
     private async void OnLayout2Clicked(object sender, EventArgs e)
-        => await ShowOnlyAsync(layout2);
+    {
+        await ShowOnlyAsync(layout2);
+        InsertDataCoach();
+    }
 
     private async void OnLayout3Clicked(object sender, EventArgs e)
         => await ShowOnlyAsync(layout3);
     private async void OnLayoutCouchAddClicked(object sender, EventArgs e)
         => await ShowOnlyAsync(LayoutCoachAdd);
+
+    private void InsertDataCoach()
+    {
+        using var context = new GymAppDbContext();
+
+        var result = context.Users.Where(u => u.UsersTypeId == 2).ToList();
+        Users.Clear();
+        foreach (var user in result)
+        {
+            Users.Add(user);
+        }
+    }
+    private void InsertData()
+    {
+        using var context = new GymAppDbContext();
+
+        var result = context.Users.ToList();
+        Users.Clear();
+        foreach (var user in result)
+        {
+            Users.Add(user);
+        }
+    }
 }
+
