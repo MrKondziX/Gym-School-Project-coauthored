@@ -14,15 +14,69 @@
 
         <!-- Wygląd 1 -->
         <VerticalStackLayout x:Name="layout1" IsVisible="True" Opacity="1">
-            <BoxView Color="LightBlue" HeightRequest="100"/>
-            <Label Text="Lista uzytkowników" />
+            <Frame 
+            Margin="20"
+            BackgroundColor="Gray"
+            CornerRadius="10"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="30">
+                <VerticalStackLayout>
+                    <Label Text="Lista Użytkowników:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <ListView x:Name="UsersListView" 
+                    ItemsSource="{Binding Users}"
+                    MaximumHeightRequest="400"
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                        <Label Text="{Binding UsersId}" WidthRequest="30" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding UsersName}" WidthRequest="80"/>
+                                        <Label Text="{Binding UsersSurname}" WidthRequest="100"/>
+                                        <Label Text="{Binding UsersEmail}" WidthRequest="180"/>
+                                        <Label Text="{Binding UsersLogin}" WidthRequest="100"/>
+                                        <Label Text="{Binding UsersTypeId}" WidthRequest="30"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </Frame>
         </VerticalStackLayout>
 
         <!-- Wygląd 2 -->
         <VerticalStackLayout x:Name="layout2" IsVisible="False" Opacity="0">
-            <BoxView Color="LightGreen" HeightRequest="100"/>
-            <Label Text="Edycja trenerów" />
-            <Button Text="Dodaj trenera" Clicked="OnLayoutCouchAddClicked"/>
+            <Frame 
+            Margin="20"
+            BackgroundColor="Gray"
+            CornerRadius="10"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="30">
+                <VerticalStackLayout>
+                <Label Text="Lista Użytkowników:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                <ListView x:Name="CoachListView" 
+                ItemsSource="{Binding Users}"
+                MaximumHeightRequest="400"
+                >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                    <Label Text="{Binding UsersId}" WidthRequest="30" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding UsersName}" WidthRequest="80"/>
+                                    <Label Text="{Binding UsersSurname}" WidthRequest="100"/>
+                                    <Label Text="{Binding UsersEmail}" WidthRequest="160"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Dodaj trenera" Clicked="OnLayoutCouchAddClicked"/>
+                </VerticalStackLayout>
+            </Frame>
         </VerticalStackLayout>
 
         <!-- Wygląd 3 -->
@@ -111,5 +165,53 @@
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
+        <!-- Panel Edytowania trenera -->
+        <!--
+        <VerticalStackLayout>
+            <Label 
+            Text="Zmiana danych logowania"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label Text="Nowe imie" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Entry x:Name="NewNameEntry" 
+            Placeholder="Wpisz nowe imie" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Text="{Binding UserNameM}" />
+            <Label Text="Nowe nazwisko:" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Entry x:Name="NewSurnameEntry" 
+            Placeholder="Wpisz nowe nazwisko" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Text="{Binding UserSurnameM}" />
+            <Label 
+            Text="Nowy email:" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry x:Name="NewEmailEntry" 
+            Placeholder="Wpisz nowy email" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"  Text="{Binding UserEmailM}" />
+            <Label Text="Nowe hasło:" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry x:Name="NewPasswordEntry" Placeholder="Nowe hasło:" IsPassword="True" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding PasswordM}" />
+            <Label 
+            Text="Potwierdź nowe hasło:" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry x:Name="ConfirmNewPasswordEntry" 
+            Placeholder="Potwierdź nowe hasło:" 
+            IsPassword="True"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Text="{Binding CheckPasswordM}" />
+            <Button 
+            Text="Zmień dane" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Clicked="SaveChangesButtonClicked" />
+            <Button 
+            Text="Wstecz"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Clicked="CancelButtonClicked"/>
+        </VerticalStackLayout>
+        -->
     </VerticalStackLayout>
 </ContentPage>
