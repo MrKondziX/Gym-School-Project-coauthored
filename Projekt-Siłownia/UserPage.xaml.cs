@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-
 
 
 namespace Projekt_Siłownia;
@@ -23,7 +21,6 @@ public partial class UserPage : ContentPage
     }
     private void WczytajKarnet()
     {
-        Debug.WriteLine(UserId);
         var dzisiaj = DateOnly.FromDateTime(DateTime.Today);
         var aktywny = context.UsersKlientCarnets
             .Where(ukc => ukc.UsersKlientId == UserId && ukc.CarnetEnddate >= dzisiaj)
@@ -86,7 +83,6 @@ public partial class UserPage : ContentPage
     private void Start_Clicked(object sender, EventArgs e)
     {
         var selected = TreningPicker.SelectedItem as TreningOption;
-        Debug.WriteLine(selected.DayValue);
         Window.Page = new Workout((int)selected.DayValue, (int)UserId);
     }
    
@@ -97,7 +93,6 @@ public partial class UserPage : ContentPage
     private void ChangeAccInfo_Clicked(object sender, EventArgs e)
     {
         //póki co nic nie robi
-        Debug.WriteLine("ChangeAccInfo Clicked");
         int userId2 = context.UsersKlients
             .Where(uk => uk.UsersKlientId == 
             UserId)

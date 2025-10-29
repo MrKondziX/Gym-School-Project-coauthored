@@ -100,6 +100,11 @@ public partial class Workout : ContentPage
             return;
         }
 
+        if(weight <= 0)
+        {
+            weight = 1;
+        }
+
         var currentExercise = Exercises[ExerciseIndex];
 
         var treningRecord = new UsersKlientTrening
