@@ -47,6 +47,7 @@
 
     <Style TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
     </Style>
     
 </ResourceDictionary>

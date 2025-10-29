@@ -43,37 +43,95 @@ public partial class Progress : ContentPage
         string[] dates = chartData.Select(x => x.TreningDate.ToString("yyyy-MM-dd")).ToArray();
         double[] scores = chartData.Select(x => x.TotalScore).ToArray();
 
-        var series = new ISeries[]
+        var columnSeries = new ColumnSeries<double>
         {
-            new ColumnSeries<double>
-            {
-                Name = "Wynik",
-                Values = scores,
-                Fill = new SolidColorPaint(SKColors.DeepSkyBlue)
-            }
+            Name = "Wynik",
+            Values = scores,
+            Fill = new SolidColorPaint(SKColor.Parse("#ff66a5"))
         };
 
-        ScoreChart.Series = series;
+        columnSeries.ChartPointPointerDown += (point, index) =>
+        {
+            DateOnly clickedDate = chartData[index.Index].TreningDate;
+
+            ShowTrainingDetailsForDate(clickedDate);
+        };
+
+        ScoreChart.Series = new ISeries[] { columnSeries };
 
         ScoreChart.XAxes = new Axis[]
         {
-            new Axis
-            {
-                Labels = dates,
-                LabelsRotation = 0,
-                Name = "Data"
-            }
+        new Axis
+        {
+            Labels = dates,
+            LabelsRotation = 0,
+            Name = "Data"
+        }
         };
 
         ScoreChart.YAxes = new Axis[]
         {
-            new Axis
-            {
-                Name = "Łączny wynik"
-            }
+        new Axis
+        {
+            Name = "Łączny wynik"
+        }
         };
     }
 
 
+    private void ShowTrainingDetailsForDate(DateOnly date)
+    {
+        using var db = new GymAppDbContext();
+
+        // Group by exercise name and weight, count occurrences
+        var trainings = (
+            from t in db.UsersKlientTrenings
+            join e in db.Exercises on t.ExsId equals e.ExsId
+            where t.UsersKlientId == UserId
+                  && t.UsersKlientTreningDate == date
+            group t by new { t.TreningWeight, e.ExsName } into g
+            select new
+            {
+                g.Key.ExsName,
+                g.Key.TreningWeight,
+                Count = g.Count()
+            }
+        )
+        .OrderBy(t => t.ExsName)
+        .ThenBy(t => t.TreningWeight)
+        .ToList();
+
+        // Clear previous contents
+        ExercisesStack.Children.Clear();
+
+        if (!trainings.Any())
+        {
+            ExercisesStack.Children.Add(new Label
+            {
+                Text = $"Brak treningów dla {date:yyyy-MM-dd}",
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Colors.Gray
+            });
+            return;
+        }
+
+        // Add a header
+        ExercisesStack.Children.Add(new Label
+        {
+            Text = $"Treningi z dnia {date:yyyy-MM-dd}:",
+            FontAttributes = FontAttributes.Bold,
+            FontSize = 16
+        });
+
+        // Add each exercise as a Label
+        foreach (var t in trainings)
+        {
+            ExercisesStack.Children.Add(new Label
+            {
+                Text = $"• {t.ExsName}: {t.TreningWeight} kg × {t.Count} wystąpień",
+                FontSize = 14
+            });
+        }
+    }
 
 }

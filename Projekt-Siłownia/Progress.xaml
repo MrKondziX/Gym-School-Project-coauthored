@@ -6,8 +6,9 @@
              NavigationPage.HasNavigationBar="False" Style="{StaticResource ContentPageStyle}">
 
 
-    <Grid RowDefinitions="Auto,*, Auto">
+    <Grid RowDefinitions="Auto,*, Auto, Auto">
         <Label Text="Śledzenie postępów" Grid.Row="0" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
+        
         <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}" Grid.Row="1" Margin="10, 0, 10, 0" x:Name="ScoreChart">
             <lvc:CartesianChart.Series>
                 <lvc:SeriesCollection>
@@ -22,6 +23,10 @@
             </lvc:CartesianChart.XAxes>
         </lvc:CartesianChart>
 
-        <Button Text="Wstecz" Grid.Row="2" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
+        <VerticalStackLayout Grid.Row="2" x:Name="ExercisesStack">
+            
+        </VerticalStackLayout>
+        
+        <Button Text="Wstecz" Grid.Row="3" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
     </Grid>
 </ContentPage>
