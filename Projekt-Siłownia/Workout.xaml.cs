@@ -93,8 +93,8 @@ public partial class Workout : ContentPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
         if (!float.TryParse(weightEntry.Text, out float weight) ||
-            !int.TryParse(repsEntry.Text, out int reps) ||
-            !int.TryParse(rpeEntry.Text, out int rpe))
+            !float.TryParse(repsEntry.Text, out float reps) ||
+            !float.TryParse(rpeEntry.Text, out float rpe))
         {
             await DisplayAlert("Błąd", "Wprowadź poprawne dane liczbowe", "OK");
             return;
@@ -114,8 +114,11 @@ public partial class Workout : ContentPage
             TreningSeries = curSeries + 1,
             ExsId = Exercises[ExerciseIndex].ExsId,
             UsersKlientTreningDate = DateOnly.FromDateTime(DateTime.Today),
-            UsersTreningdayId = TreningDayId
+            UsersTreningdayId = TreningDayId,
+            Powtorzenia = reps,
+            rpe = rpe
         };
+
 
         context.UsersKlientTrenings.Add(treningRecord);
         await context.SaveChangesAsync();
