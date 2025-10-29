@@ -83,7 +83,6 @@ public partial class Progress : ContentPage
     {
         using var db = new GymAppDbContext();
 
-        // Group by exercise name and weight, count occurrences
         var trainings = (
             from t in db.UsersKlientTrenings
             join e in db.Exercises on t.ExsId equals e.ExsId
@@ -101,7 +100,6 @@ public partial class Progress : ContentPage
         .ThenBy(t => t.TreningWeight)
         .ToList();
 
-        // Clear previous contents
         ExercisesStack.Children.Clear();
 
         if (!trainings.Any())
@@ -115,7 +113,6 @@ public partial class Progress : ContentPage
             return;
         }
 
-        // Add a header
         ExercisesStack.Children.Add(new Label
         {
             Text = $"Treningi z dnia {date:yyyy-MM-dd}:",
@@ -123,12 +120,11 @@ public partial class Progress : ContentPage
             FontSize = 16
         });
 
-        // Add each exercise as a Label
         foreach (var t in trainings)
         {
             ExercisesStack.Children.Add(new Label
             {
-                Text = $"• {t.ExsName}: {t.TreningWeight} kg × {t.Count} wystąpień",
+                Text = $"• {t.ExsName}: {t.TreningWeight} kg × {t.Count}",
                 FontSize = 14
             });
         }

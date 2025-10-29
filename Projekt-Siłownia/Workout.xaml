@@ -12,17 +12,17 @@
             <Label x:Name="noteLabel" Text="" HorizontalTextAlignment="Center" FontSize="16"/>
 
             <HorizontalStackLayout>
-                <Label Text="Ciężar"/>
+                <Label Text="Ciężar: "/>
                 <Entry x:Name="weightEntry" Keyboard="Numeric"/>
             </HorizontalStackLayout>
             
             <HorizontalStackLayout>
-                <Label Text="Powtórzenia"/>
+                <Label Text="Powtórzenia: "/>
                 <Entry x:Name="repsEntry" Keyboard="Numeric"/>
             </HorizontalStackLayout>
             
             <HorizontalStackLayout>
-                <Label Text="RPE"/>
+                <Label Text="RPE: "/>
                 <Entry x:Name="rpeEntry" Keyboard="Numeric"/>
             </HorizontalStackLayout>
             

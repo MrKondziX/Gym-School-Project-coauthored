@@ -49,5 +49,16 @@
         <Setter Property="HorizontalOptions" Value="Center"></Setter>
         <Setter Property="VerticalOptions" Value="Center"></Setter>
     </Style>
-    
+
+    <Style TargetType="DatePicker">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="ListView">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="StackLayout">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+    </Style>
 </ResourceDictionary>

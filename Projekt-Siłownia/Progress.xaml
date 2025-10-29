@@ -6,27 +6,31 @@
              NavigationPage.HasNavigationBar="False" Style="{StaticResource ContentPageStyle}">
 
 
-    <Grid RowDefinitions="Auto,*, Auto, Auto">
+    <Grid RowDefinitions="Auto,*, Auto">
         <Label Text="Śledzenie postępów" Grid.Row="0" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
-        
-        <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}" Grid.Row="1" Margin="10, 0, 10, 0" x:Name="ScoreChart">
-            <lvc:CartesianChart.Series>
-                <lvc:SeriesCollection>
-                    <lvc:XamlColumnSeries SeriesName="Score" Values="67, 69, 420, 2137"/>
-                </lvc:SeriesCollection>
-            </lvc:CartesianChart.Series>
 
-            <lvc:CartesianChart.XAxes>
-                <lvc:AxesCollection>
-                    <lvc:XamlAxis Labels="Bark, For, Me, Baby" LabelsRotation="0" MinStep="1" ForceStepToMin="True" MinLimit="0" MaxLimit="4"/>
-                </lvc:AxesCollection>
-            </lvc:CartesianChart.XAxes>
-        </lvc:CartesianChart>
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Always">
+            <VerticalStackLayout>
+                <lvc:CartesianChart LegendPosition="Right" ZoomMode="X,NoZoomBySection" UpdateStartedCommand="{Binding ChartUpdatedCommand}" Margin="30, 0, 30, 0" x:Name="ScoreChart" HeightRequest="600">
+                    <lvc:CartesianChart.Series>
+                        <lvc:SeriesCollection>
+                            <lvc:XamlColumnSeries SeriesName="Score" Values="67, 69, 420, 2137"/>
+                        </lvc:SeriesCollection>
+                    </lvc:CartesianChart.Series>
 
-        <VerticalStackLayout Grid.Row="2" x:Name="ExercisesStack">
-            
-        </VerticalStackLayout>
+                    <lvc:CartesianChart.XAxes>
+                        <lvc:AxesCollection>
+                            <lvc:XamlAxis Labels="Bark, For, Me, Baby" LabelsRotation="0" MinStep="1" ForceStepToMin="True" MinLimit="0" MaxLimit="4"/>
+                        </lvc:AxesCollection>
+                    </lvc:CartesianChart.XAxes>
+                </lvc:CartesianChart>
+
+                <VerticalStackLayout x:Name="ExercisesStack">
+                    <Label Text="Kliknij w kolumnę aby wyświetlić więcej informacji" FontSize="14"></Label>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
         
-        <Button Text="Wstecz" Grid.Row="3" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
+        <Button Text="Wstecz" Grid.Row="2" x:Name="GoBack" Clicked="GoBack_Clicked" WidthRequest="250" Margin="10"></Button>
     </Grid>
 </ContentPage>
