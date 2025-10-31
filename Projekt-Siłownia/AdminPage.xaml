@@ -9,7 +9,8 @@
         <HorizontalStackLayout Spacing="10">
             <Button Text="Lista Użytkowników" Clicked="OnLayout1Clicked"/>
             <Button Text="Edycja trenerów" Clicked="OnLayout2Clicked"/>
-            <Button Text="Edycja Ćwiczeń" Clicked="OnLayout3Clicked"/>
+            <Button Text="Przypisanie Trenera" Clicked="OnLayout4Clicked"/>
+            <!--<Button Text="Edycja Ćwiczeń" Clicked="OnLayout3Clicked"/>-->
         </HorizontalStackLayout>
 
         <!-- Wygląd 1 -->
@@ -83,6 +84,70 @@
         <VerticalStackLayout x:Name="layout3" IsVisible="False" Opacity="0">
             <BoxView Color="LightCoral" HeightRequest="100"/>
             <Label Text="Edycja Ćwiczeń" />
+        </VerticalStackLayout>
+        <!-- Przypisywanie trenerów panel 1 -->
+        <VerticalStackLayout x:Name="layoutKlientChose" IsVisible="False" Opacity="0">
+            <Frame 
+            Margin="20"
+            BackgroundColor="Gray"
+            CornerRadius="10"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="30">
+                <VerticalStackLayout>
+                    <Label Text="Wybierz użytkownika:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <ListView x:Name="ChoseKlientListView" 
+                    ItemsSource="{Binding Users}"
+                    MaximumHeightRequest="400"
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                        <Label Text="{Binding UsersId}" WidthRequest="30" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding UsersName}" WidthRequest="80"/>
+                                        <Label Text="{Binding UsersSurname}" WidthRequest="100"/>
+                                        <Label Text="{Binding UsersEmail}" WidthRequest="160"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Wybierz" Clicked="OnChoseKlient"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <!-- Przypisywanie trenerów panel 2 -->
+        <VerticalStackLayout x:Name="layoutCoachChose" IsVisible="False" Opacity="0">
+            <Frame 
+            Margin="20"
+            BackgroundColor="Gray"
+            CornerRadius="10"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="30">
+                <VerticalStackLayout>
+                    <Label Text="Wybierz trenera:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <ListView x:Name="ChoseCoachListView" 
+                    ItemsSource="{Binding Users}"
+                    MaximumHeightRequest="400"
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Spacing="10" Padding="5">
+                                        <Label Text="{Binding UsersId}" WidthRequest="30" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding UsersName}" WidthRequest="80"/>
+                                        <Label Text="{Binding UsersSurname}" WidthRequest="100"/>
+                                        <Label Text="{Binding UsersEmail}" WidthRequest="160"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Zatwierdź" Clicked="OnChoseCoach"/>
+                </VerticalStackLayout>
+            </Frame>
         </VerticalStackLayout>
         <!-- Panel dodawania trenera -->
         <VerticalStackLayout x:Name="LayoutCoachAdd" IsVisible="False" Opacity="0">

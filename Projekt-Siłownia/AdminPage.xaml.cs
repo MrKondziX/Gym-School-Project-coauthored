@@ -8,6 +8,8 @@ namespace Projekt_Siłownia;
 
 public partial class AdminPage : ContentPage , INotifyPropertyChanged
 {
+    private User SelectedKlient;
+    private User SelectedCoach;
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {
@@ -114,7 +116,7 @@ public partial class AdminPage : ContentPage , INotifyPropertyChanged
     private async Task ShowOnlyAsync(VisualElement layoutToShow)
     {
         // Znajdź wszystkie layouty na stronie
-        var layouts = new[] { layout1, layout2, layout3 , LayoutCoachAdd };
+        var layouts = new[] { layout1, layout2, layout3 , LayoutCoachAdd , layoutCoachChose, layoutKlientChose};
 
         // Ukryj te, które są inne
         foreach (var layout in layouts)
@@ -154,11 +156,62 @@ public partial class AdminPage : ContentPage , INotifyPropertyChanged
     private async void OnLayoutCouchAddClicked(object sender, EventArgs e)
         => await ShowOnlyAsync(LayoutCoachAdd);
 
+    private async void OnLayout4Clicked(object sender, EventArgs e)
+    {
+        await ShowOnlyAsync(layoutKlientChose);
+        InsertDataKlient();
+    }
+    private async void OnChoseKlient(object sender, EventArgs e)
+    {
+        if(ChoseKlientListView.SelectedItem is User klient)
+        {
+            await DisplayAlert("Sukces", "Wybrano klienta do przypisania trenera", "Ok");
+            SelectedKlient = klient;
+            await ShowOnlyAsync(layoutCoachChose);
+            InsertDataCoach();
+        }
+        else
+        {
+            await DisplayAlert("Błąd", "Wybierz klienta", "Ok");
+        }
+    }
+    private async void OnChoseCoach(object sender, EventArgs e)
+    {
+        if (ChoseCoachListView.SelectedItem is User coach)
+        {
+            using var context = new GymAppDbContext();
+            await DisplayAlert("Sukces", "Wybrano trenera do klienta", "Ok");
+            SelectedCoach = coach;
+            var tcoach = context.UsersCoaches.FirstOrDefault(c => c.UsersId == SelectedCoach.UsersId);
+            var tklient = context.UsersKlients.FirstOrDefault(k => k.UsersId == SelectedKlient.UsersId);
+
+            tklient.UsersCoachId = tcoach.UsersCoachId;
+            await context.SaveChangesAsync();
+            await ShowOnlyAsync(layoutKlientChose);
+            InsertDataKlient();
+        }
+        else
+        {
+            await DisplayAlert("Błąd", "Wybierz trenera", "Ok");
+        }
+
+    }
     private void InsertDataCoach()
     {
         using var context = new GymAppDbContext();
 
         var result = context.Users.Where(u => u.UsersTypeId == 2).ToList();
+        Users.Clear();
+        foreach (var user in result)
+        {
+            Users.Add(user);
+        }
+    }
+    private void InsertDataKlient ()
+    {
+        using var context = new GymAppDbContext();
+
+        var result = context.Users.Where(u => u.UsersTypeId == 3).ToList();
         Users.Clear();
         foreach (var user in result)
         {
