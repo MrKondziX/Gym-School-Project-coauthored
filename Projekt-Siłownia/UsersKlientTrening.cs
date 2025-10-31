@@ -18,4 +18,6 @@ public partial class UsersKlientTrening
     public int ExsId { get; set; }
 
     public int UsersTreningdayId { get; set; }
+    public float Powtorzenia { get; set; }
+    public float rpe { get; set; }
 }

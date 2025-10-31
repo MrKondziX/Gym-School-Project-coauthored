@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.AssignWorkout"
-             Title="AssignWorkout">
+             Title="AssignWorkout" Style="{StaticResource ContentPageStyle}"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
+        <Label Text="Przypisywanie treningu" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
         <Button x:Name="GoBack" Text="Wstecz" Clicked="GoBack_Clicked" />
         <HorizontalStackLayout>
             <Label Text="Przypisujesz trening dla użytkownika: " />

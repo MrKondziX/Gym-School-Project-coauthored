@@ -2,21 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.UserPage"
-             Title="UserPage">
+             Title="UserPage" Style="{StaticResource ContentPageStyle}"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label Text="User Page"/>
-        <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
+        <Label Text="Strona główna" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
+
+        <HorizontalStackLayout Spacing="50">
+
+            <Frame WidthRequest="450" HeightRequest="350">
+                <VerticalStackLayout>
+                    <Label Text="Treningi" FontSize="24"/>
+                    <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
+                    <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
+                    <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
+                </VerticalStackLayout>
+            </Frame>
+
+
+            <Frame WidthRequest="450" HeightRequest="350">
+                <VerticalStackLayout>
+                    <Label Text="Moje Karnety" FontSize="24"/>
+                    <VerticalStackLayout>
+                        <Label x:Name="Rodzaj"/>
+                        <Label x:Name="Data"/>
+                        <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+        </HorizontalStackLayout>
+        
+        
+        
+        
+        
         <Button x:Name="ChangeAccInfo" Text="Zmień dane konta" Clicked="ChangeAccInfo_Clicked" />
-        <Picker ItemDisplayBinding="{Binding DisplayText}" x:Name="TreningPicker"/>
-        <Button Text="Rozpocznij Trening" Clicked="Start_Clicked"/>
-        <Label Text="Moje Karnety"/>
-        <StackLayout Background="Black">
-            
-            <Label x:Name="Rodzaj"/>
-            <Label x:Name="Data"/>
-            <Button Text="Kup Karnet" Clicked="OdnowButton_Clicked"/>
-        </StackLayout>
-        <!-- Placeholder by MJ -->
-        <Button x:Name="Progress" Clicked="Progress_Clicked" Text="Postępy" HorizontalOptions="Center"></Button>
+        <Button Text="Wyloguj Się" Clicked="LogOutClicked"/>
     </VerticalStackLayout>
 </ContentPage>

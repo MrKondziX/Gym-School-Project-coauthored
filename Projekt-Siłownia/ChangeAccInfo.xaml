@@ -2,50 +2,68 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Projekt_Siłownia.ChangeAccInfo"
-             Title="ChangeAccInfo">
+             Title="ChangeAccInfo" Style="{StaticResource ContentPageStyle}"
+             NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="Zmiana danych logowania"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label Text="Nowe imie" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Entry x:Name="NewNameEntry" 
-               Placeholder="Wpisz nowe imie" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" Text="{Binding UserNameM}" />
-        <Label Text="Nowe nazwisko:" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Entry x:Name="NewSurnameEntry" 
-               Placeholder="Wpisz nowe nazwisko" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" Text="{Binding UserSurnameM}" />
-        <Label 
-            Text="Nowy email:" 
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Entry x:Name="NewEmailEntry" 
-               Placeholder="Wpisz nowy email" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center"  Text="{Binding UserEmailM}" />
-        <Label Text="Nowe hasło:" 
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" />
-        <Entry x:Name="NewPasswordEntry" Placeholder="Nowe hasło:" IsPassword="True" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding PasswordM}" />
-        <Label 
-            Text="Potwierdź nowe hasło:" 
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Entry x:Name="ConfirmNewPasswordEntry" 
-               Placeholder="Potwierdź nowe hasło:" 
-               IsPassword="True"
-               VerticalOptions="Center" 
-               HorizontalOptions="Center" Text="{Binding CheckPasswordM}" />
-        <Button 
-            Text="Zmień dane" 
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" Clicked="SaveChangesButtonClicked" />
-        <Button 
-            Text="Wstecz"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" Clicked="CancelButtonClicked"/>
+        <Label Text="Zmiana danych" Padding="20" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
+
+        <HorizontalStackLayout>
+            <Label Text="Nowe imię:" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Entry x:Name="NewNameEntry" 
+                Placeholder="Wpisz nowe imie" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Text="{Binding UserNameM}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Nowe nazwisko:" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Entry x:Name="NewSurnameEntry" 
+                Placeholder="Wpisz nowe nazwisko" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Text="{Binding UserSurnameM}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Nowy email:" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry x:Name="NewEmailEntry" 
+                Placeholder="Wpisz nowy email" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"  Text="{Binding UserEmailM}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Nowe hasło:" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry x:Name="NewPasswordEntry" Placeholder="Nowe hasło:" IsPassword="True" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding PasswordM}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label 
+                Text="Potwierdź nowe hasło:" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Entry x:Name="ConfirmNewPasswordEntry" 
+                Placeholder="Potwierdź nowe hasło:" 
+                IsPassword="True"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Text="{Binding CheckPasswordM}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Button 
+                Text="Wstecz"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Clicked="CancelButtonClicked"/>
+            <Button 
+                Text="Zmień dane" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" Clicked="SaveChangesButtonClicked" />
+        </HorizontalStackLayout>
+        
+        
     </VerticalStackLayout>
 </ContentPage>
