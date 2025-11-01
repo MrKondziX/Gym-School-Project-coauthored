@@ -221,6 +221,7 @@ Chcesz pomóc w rozwoju projektu? Oto jak możesz to zrobić:
 ---
 
 ## Relacje (logiczne)
+
 ```mermaid
 erDiagram
     USERS ||--o{ USERS_COACH : has
@@ -236,4 +237,3 @@ erDiagram
     EXERCISES_MUSCLES ||--o{ EXERCISES : group
     USERS_KLIENT ||--o{ USERS_KLIENT_TRENINGPLANS : plan_for
     EXERCISES ||--o{ USERS_KLIENT_TRENINGPLANS : planned
-```
