@@ -19,7 +19,7 @@ Aplikacja umożliwia m.in.:
 | 👤 Użytkownicy | Logowanie, rejestracja, role (klient, trener, admin) |
 | 🏋️‍♀️ Treningi | Tworzenie i edycja planów treningowych |
 | 🧾 Raporty | Generowanie raportów z aktywności |
-| 🏢 Zarządzanie | Dodawanie sprzętu, harmonogramów, zajęć |
+| 🏢 Zarządzanie | Dodawanie ćwiczeń |
 | 💾 Dane | Zapisywanie informacji w bazie danych MySQL |
 | ⚙️ GUI | Intuicyjny interfejs desktopowy stworzony w C# (.net MAUI) |
 
