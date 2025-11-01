@@ -34,7 +34,7 @@ public partial class Progress : ContentPage
             select new
             {
                 TreningDate = g.Key,
-                TotalScore = g.Sum(x => (double)x.TreningWeight * x.TreningSeries)
+                TotalScore = g.Sum(x => (double)x.TreningWeight * x.Powtorzenia)
             }
         )
         .OrderBy(x => x.TreningDate)
@@ -88,12 +88,13 @@ public partial class Progress : ContentPage
             join e in db.Exercises on t.ExsId equals e.ExsId
             where t.UsersKlientId == UserId
                   && t.UsersKlientTreningDate == date
-            group t by new { t.TreningWeight, e.ExsName } into g
+            group t by new { t.TreningWeight, t.Powtorzenia, e.ExsName } into g
             select new
             {
                 g.Key.ExsName,
                 g.Key.TreningWeight,
-                Count = g.Count()
+                g.Key.Powtorzenia,
+                Count = g.Count(),
             }
         )
         .OrderBy(t => t.ExsName)
@@ -124,7 +125,7 @@ public partial class Progress : ContentPage
         {
             ExercisesStack.Children.Add(new Label
             {
-                Text = $"• {t.ExsName}: {t.TreningWeight} kg × {t.Count}",
+                Text = $"• {t.ExsName}: {t.TreningWeight} kg × {t.Powtorzenia} powtórzeń × serie {t.Count}",
                 FontSize = 14
             });
         }
