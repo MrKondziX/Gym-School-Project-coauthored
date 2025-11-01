@@ -226,7 +226,7 @@ Chcesz pomóc w rozwoju projektu? Oto jak możesz to zrobić:
 erDiagram
     USERS ||--o{ USERS_COACH : has
     USERS ||--o{ USERS_KLIENT : has
-    USERS_TYPE ||--o{ USERS : class
+    USERS_TYPE ||--o{ USERS : has_type
     USERS_COACH ||--o{ USERS_KLIENT : coach_of
     USERS_KLIENT ||--o{ USERS_KLIENT_CARNETS : has
     CARNETS ||--o{ USERS_KLIENT_CARNETS : assigned
