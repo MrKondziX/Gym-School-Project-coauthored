@@ -50,7 +50,7 @@ Aplikacja umożliwia m.in.:
 - **System operacyjny:** Windows 10 lub nowszy
 - **.NET Framework / .NET Core:** .NET 8.0
 - **IDE:** Visual Studio 2022
-- **Baza danych:** SQL Server / SQLite
+- **Baza danych:** MySQL
 
 ---
 
